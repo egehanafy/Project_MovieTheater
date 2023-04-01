@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.Entity.Enum;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -18,6 +19,8 @@ namespace Project.Entity.Interface
         public DateTime UpdatedDate { get; set; }
         public string UpdatedComputerName { get; set; }
         public string UpdatedIpAddress { get; set; }
+
+        public Status Status { get; set; }
 
         public bool IsActive { get; set; }
 

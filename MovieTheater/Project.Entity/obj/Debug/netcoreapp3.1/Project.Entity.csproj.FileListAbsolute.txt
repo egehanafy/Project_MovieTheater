@@ -1,0 +1,10 @@
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.Entity\bin\Debug\netcoreapp3.1\Project.Entity.deps.json
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.Entity\bin\Debug\netcoreapp3.1\Project.Entity.dll
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.Entity\bin\Debug\netcoreapp3.1\Project.Entity.pdb
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.Entity\obj\Debug\netcoreapp3.1\Project.Entity.csproj.AssemblyReference.cache
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.Entity\obj\Debug\netcoreapp3.1\Project.Entity.GeneratedMSBuildEditorConfig.editorconfig
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.Entity\obj\Debug\netcoreapp3.1\Project.Entity.AssemblyInfoInputs.cache
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.Entity\obj\Debug\netcoreapp3.1\Project.Entity.AssemblyInfo.cs
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.Entity\obj\Debug\netcoreapp3.1\Project.Entity.csproj.CoreCompileInputs.cache
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.Entity\obj\Debug\netcoreapp3.1\Project.Entity.dll
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.Entity\obj\Debug\netcoreapp3.1\Project.Entity.pdb
