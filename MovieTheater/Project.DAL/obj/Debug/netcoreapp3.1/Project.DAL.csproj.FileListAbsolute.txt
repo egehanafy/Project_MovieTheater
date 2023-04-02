@@ -1,0 +1,16 @@
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.DAL\bin\Debug\netcoreapp3.1\Project.DAL.deps.json
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.DAL\bin\Debug\netcoreapp3.1\Project.DAL.runtimeconfig.json
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.DAL\bin\Debug\netcoreapp3.1\Project.DAL.runtimeconfig.dev.json
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.DAL\bin\Debug\netcoreapp3.1\Project.DAL.dll
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.DAL\bin\Debug\netcoreapp3.1\Project.DAL.pdb
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.DAL\bin\Debug\netcoreapp3.1\Project.Entity.dll
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.DAL\bin\Debug\netcoreapp3.1\Project.Entity.pdb
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.DAL\obj\Debug\netcoreapp3.1\Project.DAL.csproj.AssemblyReference.cache
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.DAL\obj\Debug\netcoreapp3.1\Project.DAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.DAL\obj\Debug\netcoreapp3.1\Project.DAL.AssemblyInfoInputs.cache
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.DAL\obj\Debug\netcoreapp3.1\Project.DAL.AssemblyInfo.cs
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.DAL\obj\Debug\netcoreapp3.1\Project.DAL.csproj.CoreCompileInputs.cache
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.DAL\obj\Debug\netcoreapp3.1\Project.DAL.csproj.CopyComplete
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.DAL\obj\Debug\netcoreapp3.1\Project.DAL.dll
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.DAL\obj\Debug\netcoreapp3.1\Project.DAL.pdb
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.DAL\obj\Debug\netcoreapp3.1\Project.DAL.genruntimeconfig.cache

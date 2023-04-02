@@ -1,0 +1,15 @@
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.BLL\obj\Debug\netcoreapp3.1\Project.BLL.csproj.AssemblyReference.cache
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.BLL\obj\Debug\netcoreapp3.1\Project.BLL.GeneratedMSBuildEditorConfig.editorconfig
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.BLL\obj\Debug\netcoreapp3.1\Project.BLL.AssemblyInfoInputs.cache
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.BLL\obj\Debug\netcoreapp3.1\Project.BLL.AssemblyInfo.cs
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.BLL\obj\Debug\netcoreapp3.1\Project.BLL.csproj.CoreCompileInputs.cache
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.BLL\bin\Debug\netcoreapp3.1\Project.BLL.deps.json
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.BLL\bin\Debug\netcoreapp3.1\Project.BLL.dll
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.BLL\bin\Debug\netcoreapp3.1\Project.BLL.pdb
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.BLL\bin\Debug\netcoreapp3.1\Project.DAL.dll
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.BLL\bin\Debug\netcoreapp3.1\Project.Entity.dll
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.BLL\bin\Debug\netcoreapp3.1\Project.DAL.pdb
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.BLL\bin\Debug\netcoreapp3.1\Project.Entity.pdb
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.BLL\obj\Debug\netcoreapp3.1\Project.BLL.csproj.CopyComplete
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.BLL\obj\Debug\netcoreapp3.1\Project.BLL.dll
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.BLL\obj\Debug\netcoreapp3.1\Project.BLL.pdb
