@@ -1,5 +1,4 @@
-﻿using Project.BLL.Concrete;
-using System;
+﻿using System;
 
 namespace Porject.TestConsole
 {
@@ -7,12 +6,6 @@ namespace Porject.TestConsole
     {
         static void Main(string[] args)
         {
-            MovieRepository movieRepo = new MovieRepository();
-
-            foreach (var item in movieRepo.GetAll())
-            {
-                Console.WriteLine(item.MovieName);
-            }
         }
     }
 }

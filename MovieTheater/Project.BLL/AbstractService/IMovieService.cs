@@ -3,10 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Project.BLL.Abstract
+namespace Project.BLL.AbstractService
 {
-    public interface IMovieRepository
+    public interface IMovieService
     {
-        public List<Movie> GetAll();
+        IEnumerable<Movie> GetAllMovie();
     }
 }
