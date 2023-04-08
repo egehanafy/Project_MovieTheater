@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Project.BLL.AbstractService;
 using Project.MVC.Models;
 using System;
 using System.Collections.Generic;
@@ -11,15 +12,15 @@ namespace Project.MVC.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IMovieService movieService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IMovieService movieService)
         {
-            _logger = logger;
+            this.movieService = movieService;
         }
-
         public IActionResult Index()
         {
+            var movies = movieService.GetAllMovie().ToList();
             return View();
         }
 

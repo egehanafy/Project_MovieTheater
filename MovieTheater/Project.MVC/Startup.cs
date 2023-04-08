@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -8,6 +9,7 @@ using Project.BLL.Abstract;
 using Project.BLL.AbstractService;
 using Project.BLL.Concrete;
 using Project.BLL.Service;
+using Project.DAL.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,9 +31,12 @@ namespace Project.MVC
         {
             services.AddControllersWithViews();
 
-            //services.AddTransient(typeof(IRepository<>), typeof(BaseRepository<>));
+            //DbContext
+            services.AddDbContext<ProjectContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            //services.AddScoped<IMovieService, MovieService>();
+            //Service
+            services.AddTransient(typeof(IRepository<>), typeof(BaseRepository<>));
+            services.AddScoped<IMovieService, MovieService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

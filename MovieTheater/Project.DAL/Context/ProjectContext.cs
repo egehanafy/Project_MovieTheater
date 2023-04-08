@@ -7,19 +7,22 @@ namespace Project.DAL.Context
 {
     public class ProjectContext : IdentityDbContext<AppUser, AppUserRole, int>
     {
-        //ctor
+        public ProjectContext(DbContextOptions<ProjectContext> options):base(options)
+        {
+            
+        }
 
         public DbSet<Movie> Movies { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer("server=EGEHAN\\SQLEXPRESS;database=MovieTheaterDB;uid=sa;pwd=123;");
-            }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    if (!optionsBuilder.IsConfigured)
+        //    {
+        //        optionsBuilder.UseSqlServer("server=EGEHAN\\SQLEXPRESS;database=MovieTheaterDB;uid=sa;pwd=123;");
+        //    }
 
-            base.OnConfiguring(optionsBuilder);
-        }
+        //    base.OnConfiguring(optionsBuilder);
+        //}
 
         //FakeData
 
