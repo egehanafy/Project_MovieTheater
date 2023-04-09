@@ -9,5 +9,10 @@ namespace Project.MVC.Areas.Dashboard.Controllers
         {
             return View();
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }

@@ -1,0 +1,46 @@
+﻿@model MovieVM
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="card mb-4 mt-4">
+    <div class="card-header">
+        <h3>New Genre</h3>
+    </div>
+    <div class="card-body">
+        <form asp-action="Create" asp-controller="Movie" method="post">
+            <div class="mb-2">
+                <label>Title</label>
+                <input type="text" class="form-control" asp-for="Title" />
+            </div>
+
+            <div class="mb-2">
+                <label>Description</label>
+                <input type="text" class="form-control" asp-for="Description" />
+            </div>
+
+            <div class="mb-2">
+                <label>Genre</label>
+                <input type="text" class="form-control" asp-for="Genre" />
+            </div>
+
+            <div class="mb-2">
+                <label>Select Genre</label>
+                <select class="form-control custom-select" asp-for="Genre.Id">
+                    <option>Select Genre</option>
+                    <option>Korku</option>
+                    <option>Bilim Kurgu</option>
+                </select>
+            </div>
+
+            <div class="mb-2">
+                <label>Title</label>
+                <input type="file" class="form-control" name="ImagePath" />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
