@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewData["Title"] = "Category";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+
+<div class="card mb-4 mt-4">
+    <div class="card-header">
+        <div class="d-flex justify-content-between">
+            <h3>@ViewData["Title"]</h3>
+            <a class="btn btn-success" asp-action="Create" asp-controller="Category">New Category</a>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Category Name</th>
+                    <th>Description</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Korku</td>
+                    <td>Korku Filmleri</td>
+                    <td>
+                        <a class="btn btn-sm btn-warning" href="#">Update</a>
+                        |
+                        <a class="btn btn-sm btn-danger" href="#">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

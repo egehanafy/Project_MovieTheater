@@ -8,5 +8,8 @@ namespace Project.BLL.AbstractService
     public interface IMovieService
     {
         IEnumerable<Movie> GetAllMovie();
+        string CreateMovie(Movie movie);
+        string DeleteMovie(Movie movie);
+        string UpdateMovie(Movie movie);
     }
 }

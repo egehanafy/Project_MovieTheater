@@ -16,9 +16,45 @@ namespace Project.BLL.Service
             _movieRepo = movieRepository;
         }
 
+        public string CreateMovie(Movie movie)
+        {
+            try
+            {
+                return _movieRepo.Create(movie);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+        public string DeleteMovie(Movie movie)
+        {
+            try
+            {
+                return _movieRepo.Delete(movie);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
         public IEnumerable<Movie> GetAllMovie()
         {
             return _movieRepo.GetAll();
+        }
+
+        public string UpdateMovie(Movie movie)
+        {
+            try
+            {
+                return _movieRepo.Update(movie);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
     }
 }

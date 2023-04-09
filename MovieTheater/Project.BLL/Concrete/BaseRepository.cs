@@ -39,7 +39,7 @@ namespace Project.BLL.Concrete
             try
             {
                 var deleted = _entities.Find(entity.Id);
-                _entities.Remove(deleted);
+                deleted.Status = Entity.Enum.Status.Deleted;
                 _db.SaveChanges();
                 return "veri silindi";
             }
