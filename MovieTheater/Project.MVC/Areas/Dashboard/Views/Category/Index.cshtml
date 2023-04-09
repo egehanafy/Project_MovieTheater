@@ -1,10 +1,16 @@
-﻿
+﻿@model List<Project.Entity.Entity.Category>
+
 @{
     ViewData["Title"] = "Category";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
-
+@if (TempData["result"] != null)
+{
+    <div class="alert alert-info alert-dismissible mt-4">
+        <span>@TempData["result"]</span>
+    </div>
+}
 <div class="card mb-4 mt-4">
     <div class="card-header">
         <div class="d-flex justify-content-between">
@@ -23,16 +29,27 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Korku</td>
-                    <td>Korku Filmleri</td>
-                    <td>
-                        <a class="btn btn-sm btn-warning" href="#">Update</a>
-                        |
-                        <a class="btn btn-sm btn-danger" href="#">Delete</a>
-                    </td>
-                </tr>
+                @{
+                    if (Model.Count == 0)
+                    {
+                        <tr>
+                            <td colspan="4">
+                                <span>Herhangi bir kategori eklenmemis</span>
+                            </td>
+                        </tr>
+                    }
+
+                    {
+                        @foreach (var category in Model)
+                        {
+                            <tr>
+                                <td>@category.Id</td>
+                                <td>@category.CategoryName</td>
+                                <td>@category.Description</td>
+                            </tr>
+                        }
+                    }
+                }
             </tbody>
         </table>
     </div>

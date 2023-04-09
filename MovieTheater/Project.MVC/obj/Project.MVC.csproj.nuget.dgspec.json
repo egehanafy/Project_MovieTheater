@@ -244,6 +244,9 @@
             "projectReferences": {
               "D:\\YZL3162\\Projelerim\\MovieTheater\\MovieTheater\\Project.BLL\\Project.BLL.csproj": {
                 "projectPath": "D:\\YZL3162\\Projelerim\\MovieTheater\\MovieTheater\\Project.BLL\\Project.BLL.csproj"
+              },
+              "D:\\YZL3162\\Projelerim\\MovieTheater\\MovieTheater\\Project.Entity\\Project.Entity.csproj": {
+                "projectPath": "D:\\YZL3162\\Projelerim\\MovieTheater\\MovieTheater\\Project.Entity\\Project.Entity.csproj"
               }
             }
           }
@@ -258,6 +261,12 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.32, )"
+            },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.1.5, )"

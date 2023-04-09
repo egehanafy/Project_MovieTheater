@@ -2,6 +2,10 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Project.Entity.Entity;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Project.DAL.Context
 {
@@ -13,16 +17,8 @@ namespace Project.DAL.Context
         }
 
         public DbSet<Movie> Movies { get; set; }
-
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    if (!optionsBuilder.IsConfigured)
-        //    {
-        //        optionsBuilder.UseSqlServer("server=EGEHAN\\SQLEXPRESS;database=MovieTheaterDB;uid=sa;pwd=123;");
-        //    }
-
-        //    base.OnConfiguring(optionsBuilder);
-        //}
+        public DbSet<Category> Categories { get; set; }
+        
 
         //FakeData
 
@@ -30,17 +26,53 @@ namespace Project.DAL.Context
         {
             //AppUser
 
-            //Movie
-            Movie movie = new Movie
+
+            //Category
+            List<Category> categories = new List<Category>
             {
-                Id = 1,
-                MovieName = "Starwars",
-                UnitPrice = 5,
-                UnitsInStock = 10,
-                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sollicitudin, est et consequat feugiat, nisl magna molestie arcu, eu maximus tellus risus sit amet quam. Phasellus eleifend dapibus consectetur. Pellentesque eget elit libero. Fusce convallis, magna et placerat congue, erat massa auctor dolor, non mollis risus arcu suscipit tortor. Aliquam erat volutpat. Mauris et nibh a leo tempus laoreet. Donec dapibus sed est at porta. Aenean eget eleifend libero. Quisque tempor dui erat, non luctus arcu porttitor in. Maecenas vitae dignissim libero. Donec auctor eros elit, in molestie neque venenatis non. Pellentesque massa odio, semper in lacus ac, porttitor auctor ligula.",
-                ImagePath = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoNaLFFSdD4YhW8mqgDBSWY8nHnte6ANHQWz6Lsl37yA&s"
+                new Category
+                {
+                    Id = 1,
+                    CategoryName="Korku",
+                    Description="Korku fimleri"
+                },
+                new Category
+                {
+                    Id = 2,
+                    CategoryName="Bilim Kurgu",
+                    Description="Bilim kurgu fimleri"
+                }
             };
-            builder.Entity<Movie>().HasData(movie);
+
+            //Movie
+            List<Movie> movies = new List<Movie>
+            {
+                new Movie
+                {
+                    Id = 1,
+                    Title = "Star Wars",
+                    Description = "Yildiz Savaslari, George Lucsa tarafindan yaratilmis, oncelikle fimleriyle taninmis, sonraki yillarda cizgi roman, video oyunlari, televizyon yapimlari vb. dallarda ununu arttirmis kurgusal bir evren ve markadir.",
+                    Duration = TimeSpan.FromHours(2.01),
+                    Year = "1977",
+                    Rating = 8.8D,
+                    ImagePath = "https://t1.gstatic.com/licensed-image?q=tbn:ANd9GcSFqs2AfGte3gdgvgNmHogNiyN3r9VS3x-sAd2PDYe5RuvfMeBz5DdQSR-dcGSW3DZF",
+                    CategoryId = categories.Where(x=>x.CategoryName=="Bilim Kurgu").FirstOrDefault().Id
+                },
+                new Movie
+                {
+                    Id = 2,
+                    Title = "Exorcism",
+                    Description = "Seytan, William Friedkin'in yonettigi 1973 tarihli bir ABD yapimi filmdir. Tum dunyada elestiriler alan bu filmin setinde de kadronun basina ilginc seyler geldi.",
+                    Duration = TimeSpan.FromHours(2.12),
+                    Year = "1973",
+                    Rating = 8.1D,
+                    ImagePath = "https://upload.wikimedia.org/wikipedia/tr/5/59/Exorcistmovie.jpg",
+                    CategoryId = categories.Where(x=>x.CategoryName=="Korku").FirstOrDefault().Id
+                }
+            };
+
+            builder.Entity<Movie>().HasData(movies);
+            builder.Entity<Category>().HasData(categories);
 
             base.OnModelCreating(builder);
         }

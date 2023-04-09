@@ -12,8 +12,15 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
+#nullable restore
+#line 1 "D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.MVC\Areas\Dashboard\Views\_ViewImports.cshtml"
+using Project.MVC.Areas.Dashboard.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7f11ac7b8aaf1fd145b6dd0d87c684a4633c7664", @"/Areas/Dashboard/Views/Movie/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a9af4978b9c2bfca24ef48e96efe5f8573634464", @"/Areas/Dashboard/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6b67b938d6d3bc8085a8b236203da2eb77e02a57", @"/Areas/Dashboard/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Areas_Dashboard_Views_Movie_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     #nullable disable

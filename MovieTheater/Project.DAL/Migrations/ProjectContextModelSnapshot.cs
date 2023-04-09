@@ -222,12 +222,15 @@ namespace Project.DAL.Migrations
                     b.ToTable("AspNetRoles");
                 });
 
-            modelBuilder.Entity("Project.Entity.Entity.Movie", b =>
+            modelBuilder.Entity("Project.Entity.Entity.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CategoryName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CreatedComputerName")
                         .HasColumnType("nvarchar(max)");
@@ -241,26 +244,14 @@ namespace Project.DAL.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ImagePath")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
                     b.Property<Guid>("MasterId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("MovieName")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("Status")
                         .HasColumnType("int");
-
-                    b.Property<decimal>("UnitPrice")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<short>("UnitsInStock")
-                        .HasColumnType("smallint");
 
                     b.Property<string>("UpdatedComputerName")
                         .HasColumnType("nvarchar(max)");
@@ -273,22 +264,126 @@ namespace Project.DAL.Migrations
 
                     b.HasKey("Id");
 
+                    b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoryName = "Korku",
+                            CreatedDate = new DateTime(2023, 4, 9, 19, 27, 7, 129, DateTimeKind.Local).AddTicks(53),
+                            Description = "Korku fimleri",
+                            IsActive = true,
+                            MasterId = new Guid("00000000-0000-0000-0000-000000000000"),
+                            Status = 1,
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoryName = "Bilim Kurgu",
+                            CreatedDate = new DateTime(2023, 4, 9, 19, 27, 7, 129, DateTimeKind.Local).AddTicks(8134),
+                            Description = "Bilim kurgu fimleri",
+                            IsActive = true,
+                            MasterId = new Guid("00000000-0000-0000-0000-000000000000"),
+                            Status = 1,
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
+                });
+
+            modelBuilder.Entity("Project.Entity.Entity.Movie", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CreatedComputerName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedIpAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<TimeSpan>("Duration")
+                        .HasColumnType("time");
+
+                    b.Property<string>("ImagePath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid>("MasterId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<double>("Rating")
+                        .HasColumnType("float");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UpdatedComputerName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdatedIpAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Year")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
                     b.ToTable("Movies");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2023, 4, 2, 9, 49, 51, 511, DateTimeKind.Local).AddTicks(1616),
-                            Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sollicitudin, est et consequat feugiat, nisl magna molestie arcu, eu maximus tellus risus sit amet quam. Phasellus eleifend dapibus consectetur. Pellentesque eget elit libero. Fusce convallis, magna et placerat congue, erat massa auctor dolor, non mollis risus arcu suscipit tortor. Aliquam erat volutpat. Mauris et nibh a leo tempus laoreet. Donec dapibus sed est at porta. Aenean eget eleifend libero. Quisque tempor dui erat, non luctus arcu porttitor in. Maecenas vitae dignissim libero. Donec auctor eros elit, in molestie neque venenatis non. Pellentesque massa odio, semper in lacus ac, porttitor auctor ligula.",
-                            ImagePath = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoNaLFFSdD4YhW8mqgDBSWY8nHnte6ANHQWz6Lsl37yA&s",
+                            CategoryId = 2,
+                            CreatedDate = new DateTime(2023, 4, 9, 19, 27, 7, 129, DateTimeKind.Local).AddTicks(8443),
+                            Description = "Yildiz Savaslari, George Lucsa tarafindan yaratilmis, oncelikle fimleriyle taninmis, sonraki yillarda cizgi roman, video oyunlari, televizyon yapimlari vb. dallarda ununu arttirmis kurgusal bir evren ve markadir.",
+                            Duration = new TimeSpan(72359999999),
+                            ImagePath = "https://t1.gstatic.com/licensed-image?q=tbn:ANd9GcSFqs2AfGte3gdgvgNmHogNiyN3r9VS3x-sAd2PDYe5RuvfMeBz5DdQSR-dcGSW3DZF",
                             IsActive = true,
                             MasterId = new Guid("00000000-0000-0000-0000-000000000000"),
-                            MovieName = "Starwars",
+                            Rating = 8.8000000000000007,
                             Status = 1,
-                            UnitPrice = 5m,
-                            UnitsInStock = (short)10,
-                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            Title = "Star Wars",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Year = "1977"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoryId = 1,
+                            CreatedDate = new DateTime(2023, 4, 9, 19, 27, 7, 130, DateTimeKind.Local).AddTicks(1409),
+                            Description = "Seytan, William Friedkin'in yonettigi 1973 tarihli bir ABD yapimi filmdir. Tum dunyada elestiriler alan bu filmin setinde de kadronun basina ilginc seyler geldi.",
+                            Duration = new TimeSpan(0, 2, 7, 12, 0),
+                            ImagePath = "https://upload.wikimedia.org/wikipedia/tr/5/59/Exorcistmovie.jpg",
+                            IsActive = true,
+                            MasterId = new Guid("00000000-0000-0000-0000-000000000000"),
+                            Rating = 8.0999999999999996,
+                            Status = 1,
+                            Title = "Exorcism",
+                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Year = "1973"
                         });
                 });
 
@@ -339,6 +434,15 @@ namespace Project.DAL.Migrations
                     b.HasOne("Project.Entity.Entity.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Project.Entity.Entity.Movie", b =>
+                {
+                    b.HasOne("Project.Entity.Entity.Category", "Category")
+                        .WithMany("Movies")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
