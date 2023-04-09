@@ -1,9 +1,11 @@
-﻿@model List<Project.Entity.Entity.Category>
+﻿@model List<Project.Entity.Entity.Genre>
+
 
 @{
-    ViewData["Title"] = "Category";
+    ViewData["Title"] = "Genre";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
+
 
 @if (TempData["result"] != null)
 {
@@ -15,7 +17,7 @@
     <div class="card-header">
         <div class="d-flex justify-content-between">
             <h3>@ViewData["Title"]</h3>
-            <a class="btn btn-success" asp-action="Create" asp-controller="Category">New Category</a>
+            <a class="btn btn-success" asp-action="Create" asp-controller="Genre">New Genre</a>
         </div>
     </div>
     <div class="card-body">
@@ -23,8 +25,7 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Category Name</th>
-                    <th>Description</th>
+                    <th>Genre Name</th>
                     <th></th>
                 </tr>
             </thead>
@@ -34,18 +35,17 @@
                     {
                         <tr>
                             <td colspan="4">
-                                <span>Herhangi bir kategori eklenmemis</span>
+                                <span>Herhangi bir tur eklenmemis</span>
                             </td>
                         </tr>
                     }
 
                     {
-                        @foreach (var category in Model)
+                        @foreach (var genre in Model)
                         {
                             <tr>
-                                <td>@category.Id</td>
-                                <td>@category.CategoryName</td>
-                                <td>@category.Description</td>
+                                <td>@genre.Id</td>
+                                <td>@genre.GenreName</td>
                             </tr>
                         }
                     }

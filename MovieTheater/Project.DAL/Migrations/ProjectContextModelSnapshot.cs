@@ -222,15 +222,12 @@ namespace Project.DAL.Migrations
                     b.ToTable("AspNetRoles");
                 });
 
-            modelBuilder.Entity("Project.Entity.Entity.Category", b =>
+            modelBuilder.Entity("Project.Entity.Entity.Genre", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("CategoryName")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CreatedComputerName")
                         .HasColumnType("nvarchar(max)");
@@ -241,7 +238,7 @@ namespace Project.DAL.Migrations
                     b.Property<string>("CreatedIpAddress")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Description")
+                    b.Property<string>("GenreName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
@@ -264,15 +261,14 @@ namespace Project.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Genres");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            CategoryName = "Korku",
-                            CreatedDate = new DateTime(2023, 4, 9, 19, 27, 7, 129, DateTimeKind.Local).AddTicks(53),
-                            Description = "Korku fimleri",
+                            CreatedDate = new DateTime(2023, 4, 9, 22, 18, 30, 470, DateTimeKind.Local).AddTicks(8645),
+                            GenreName = "Korku",
                             IsActive = true,
                             MasterId = new Guid("00000000-0000-0000-0000-000000000000"),
                             Status = 1,
@@ -281,9 +277,8 @@ namespace Project.DAL.Migrations
                         new
                         {
                             Id = 2,
-                            CategoryName = "Bilim Kurgu",
-                            CreatedDate = new DateTime(2023, 4, 9, 19, 27, 7, 129, DateTimeKind.Local).AddTicks(8134),
-                            Description = "Bilim kurgu fimleri",
+                            CreatedDate = new DateTime(2023, 4, 9, 22, 18, 30, 471, DateTimeKind.Local).AddTicks(6713),
+                            GenreName = "Bilim Kurgu",
                             IsActive = true,
                             MasterId = new Guid("00000000-0000-0000-0000-000000000000"),
                             Status = 1,
@@ -297,9 +292,6 @@ namespace Project.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
 
                     b.Property<string>("CreatedComputerName")
                         .HasColumnType("nvarchar(max)");
@@ -315,6 +307,9 @@ namespace Project.DAL.Migrations
 
                     b.Property<TimeSpan>("Duration")
                         .HasColumnType("time");
+
+                    b.Property<int>("GenreId")
+                        .HasColumnType("int");
 
                     b.Property<string>("ImagePath")
                         .HasColumnType("nvarchar(max)");
@@ -348,7 +343,7 @@ namespace Project.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
+                    b.HasIndex("GenreId");
 
                     b.ToTable("Movies");
 
@@ -356,10 +351,10 @@ namespace Project.DAL.Migrations
                         new
                         {
                             Id = 1,
-                            CategoryId = 2,
-                            CreatedDate = new DateTime(2023, 4, 9, 19, 27, 7, 129, DateTimeKind.Local).AddTicks(8443),
+                            CreatedDate = new DateTime(2023, 4, 9, 22, 18, 30, 471, DateTimeKind.Local).AddTicks(7025),
                             Description = "Yildiz Savaslari, George Lucsa tarafindan yaratilmis, oncelikle fimleriyle taninmis, sonraki yillarda cizgi roman, video oyunlari, televizyon yapimlari vb. dallarda ununu arttirmis kurgusal bir evren ve markadir.",
                             Duration = new TimeSpan(72359999999),
+                            GenreId = 2,
                             ImagePath = "https://t1.gstatic.com/licensed-image?q=tbn:ANd9GcSFqs2AfGte3gdgvgNmHogNiyN3r9VS3x-sAd2PDYe5RuvfMeBz5DdQSR-dcGSW3DZF",
                             IsActive = true,
                             MasterId = new Guid("00000000-0000-0000-0000-000000000000"),
@@ -372,10 +367,10 @@ namespace Project.DAL.Migrations
                         new
                         {
                             Id = 2,
-                            CategoryId = 1,
-                            CreatedDate = new DateTime(2023, 4, 9, 19, 27, 7, 130, DateTimeKind.Local).AddTicks(1409),
+                            CreatedDate = new DateTime(2023, 4, 9, 22, 18, 30, 472, DateTimeKind.Local).AddTicks(96),
                             Description = "Seytan, William Friedkin'in yonettigi 1973 tarihli bir ABD yapimi filmdir. Tum dunyada elestiriler alan bu filmin setinde de kadronun basina ilginc seyler geldi.",
                             Duration = new TimeSpan(0, 2, 7, 12, 0),
+                            GenreId = 1,
                             ImagePath = "https://upload.wikimedia.org/wikipedia/tr/5/59/Exorcistmovie.jpg",
                             IsActive = true,
                             MasterId = new Guid("00000000-0000-0000-0000-000000000000"),
@@ -440,9 +435,9 @@ namespace Project.DAL.Migrations
 
             modelBuilder.Entity("Project.Entity.Entity.Movie", b =>
                 {
-                    b.HasOne("Project.Entity.Entity.Category", "Category")
+                    b.HasOne("Project.Entity.Entity.Genre", "Genre")
                         .WithMany("Movies")
-                        .HasForeignKey("CategoryId")
+                        .HasForeignKey("GenreId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

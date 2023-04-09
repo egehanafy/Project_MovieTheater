@@ -38,7 +38,7 @@ namespace Project.MVC
             //Service
             services.AddTransient(typeof(IRepository<>), typeof(BaseRepository<>));
             services.AddScoped<IMovieService, MovieService>();
-            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IGenreService, GenreService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

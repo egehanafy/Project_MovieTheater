@@ -51,7 +51,7 @@ namespace Project.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Categories",
+                name: "Genres",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -65,12 +65,11 @@ namespace Project.DAL.Migrations
                     UpdatedIpAddress = table.Column<string>(nullable: true),
                     IsActive = table.Column<bool>(nullable: false),
                     Status = table.Column<int>(nullable: false),
-                    CategoryName = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true)
+                    GenreName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Categories", x => x.Id);
+                    table.PrimaryKey("PK_Genres", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -200,38 +199,38 @@ namespace Project.DAL.Migrations
                     Year = table.Column<string>(nullable: true),
                     Rating = table.Column<double>(nullable: false),
                     ImagePath = table.Column<string>(nullable: true),
-                    CategoryId = table.Column<int>(nullable: false)
+                    GenreId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Movies", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Movies_Categories_CategoryId",
-                        column: x => x.CategoryId,
-                        principalTable: "Categories",
+                        name: "FK_Movies_Genres_GenreId",
+                        column: x => x.GenreId,
+                        principalTable: "Genres",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
-                table: "Categories",
-                columns: new[] { "Id", "CategoryName", "CreatedComputerName", "CreatedDate", "CreatedIpAddress", "Description", "IsActive", "MasterId", "Status", "UpdatedComputerName", "UpdatedDate", "UpdatedIpAddress" },
-                values: new object[] { 1, "Korku", null, new DateTime(2023, 4, 9, 19, 27, 7, 129, DateTimeKind.Local).AddTicks(53), null, "Korku fimleri", true, new Guid("00000000-0000-0000-0000-000000000000"), 1, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null });
+                table: "Genres",
+                columns: new[] { "Id", "CreatedComputerName", "CreatedDate", "CreatedIpAddress", "GenreName", "IsActive", "MasterId", "Status", "UpdatedComputerName", "UpdatedDate", "UpdatedIpAddress" },
+                values: new object[] { 1, null, new DateTime(2023, 4, 9, 22, 18, 30, 470, DateTimeKind.Local).AddTicks(8645), null, "Korku", true, new Guid("00000000-0000-0000-0000-000000000000"), 1, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null });
 
             migrationBuilder.InsertData(
-                table: "Categories",
-                columns: new[] { "Id", "CategoryName", "CreatedComputerName", "CreatedDate", "CreatedIpAddress", "Description", "IsActive", "MasterId", "Status", "UpdatedComputerName", "UpdatedDate", "UpdatedIpAddress" },
-                values: new object[] { 2, "Bilim Kurgu", null, new DateTime(2023, 4, 9, 19, 27, 7, 129, DateTimeKind.Local).AddTicks(8134), null, "Bilim kurgu fimleri", true, new Guid("00000000-0000-0000-0000-000000000000"), 1, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null });
-
-            migrationBuilder.InsertData(
-                table: "Movies",
-                columns: new[] { "Id", "CategoryId", "CreatedComputerName", "CreatedDate", "CreatedIpAddress", "Description", "Duration", "ImagePath", "IsActive", "MasterId", "Rating", "Status", "Title", "UpdatedComputerName", "UpdatedDate", "UpdatedIpAddress", "Year" },
-                values: new object[] { 2, 1, null, new DateTime(2023, 4, 9, 19, 27, 7, 130, DateTimeKind.Local).AddTicks(1409), null, "Seytan, William Friedkin'in yonettigi 1973 tarihli bir ABD yapimi filmdir. Tum dunyada elestiriler alan bu filmin setinde de kadronun basina ilginc seyler geldi.", new TimeSpan(0, 2, 7, 12, 0), "https://upload.wikimedia.org/wikipedia/tr/5/59/Exorcistmovie.jpg", true, new Guid("00000000-0000-0000-0000-000000000000"), 8.0999999999999996, 1, "Exorcism", null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "1973" });
+                table: "Genres",
+                columns: new[] { "Id", "CreatedComputerName", "CreatedDate", "CreatedIpAddress", "GenreName", "IsActive", "MasterId", "Status", "UpdatedComputerName", "UpdatedDate", "UpdatedIpAddress" },
+                values: new object[] { 2, null, new DateTime(2023, 4, 9, 22, 18, 30, 471, DateTimeKind.Local).AddTicks(6713), null, "Bilim Kurgu", true, new Guid("00000000-0000-0000-0000-000000000000"), 1, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null });
 
             migrationBuilder.InsertData(
                 table: "Movies",
-                columns: new[] { "Id", "CategoryId", "CreatedComputerName", "CreatedDate", "CreatedIpAddress", "Description", "Duration", "ImagePath", "IsActive", "MasterId", "Rating", "Status", "Title", "UpdatedComputerName", "UpdatedDate", "UpdatedIpAddress", "Year" },
-                values: new object[] { 1, 2, null, new DateTime(2023, 4, 9, 19, 27, 7, 129, DateTimeKind.Local).AddTicks(8443), null, "Yildiz Savaslari, George Lucsa tarafindan yaratilmis, oncelikle fimleriyle taninmis, sonraki yillarda cizgi roman, video oyunlari, televizyon yapimlari vb. dallarda ununu arttirmis kurgusal bir evren ve markadir.", new TimeSpan(72359999999), "https://t1.gstatic.com/licensed-image?q=tbn:ANd9GcSFqs2AfGte3gdgvgNmHogNiyN3r9VS3x-sAd2PDYe5RuvfMeBz5DdQSR-dcGSW3DZF", true, new Guid("00000000-0000-0000-0000-000000000000"), 8.8000000000000007, 1, "Star Wars", null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "1977" });
+                columns: new[] { "Id", "CreatedComputerName", "CreatedDate", "CreatedIpAddress", "Description", "Duration", "GenreId", "ImagePath", "IsActive", "MasterId", "Rating", "Status", "Title", "UpdatedComputerName", "UpdatedDate", "UpdatedIpAddress", "Year" },
+                values: new object[] { 2, null, new DateTime(2023, 4, 9, 22, 18, 30, 472, DateTimeKind.Local).AddTicks(96), null, "Seytan, William Friedkin'in yonettigi 1973 tarihli bir ABD yapimi filmdir. Tum dunyada elestiriler alan bu filmin setinde de kadronun basina ilginc seyler geldi.", new TimeSpan(0, 2, 7, 12, 0), 1, "https://upload.wikimedia.org/wikipedia/tr/5/59/Exorcistmovie.jpg", true, new Guid("00000000-0000-0000-0000-000000000000"), 8.0999999999999996, 1, "Exorcism", null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "1973" });
+
+            migrationBuilder.InsertData(
+                table: "Movies",
+                columns: new[] { "Id", "CreatedComputerName", "CreatedDate", "CreatedIpAddress", "Description", "Duration", "GenreId", "ImagePath", "IsActive", "MasterId", "Rating", "Status", "Title", "UpdatedComputerName", "UpdatedDate", "UpdatedIpAddress", "Year" },
+                values: new object[] { 1, null, new DateTime(2023, 4, 9, 22, 18, 30, 471, DateTimeKind.Local).AddTicks(7025), null, "Yildiz Savaslari, George Lucsa tarafindan yaratilmis, oncelikle fimleriyle taninmis, sonraki yillarda cizgi roman, video oyunlari, televizyon yapimlari vb. dallarda ununu arttirmis kurgusal bir evren ve markadir.", new TimeSpan(72359999999), 2, "https://t1.gstatic.com/licensed-image?q=tbn:ANd9GcSFqs2AfGte3gdgvgNmHogNiyN3r9VS3x-sAd2PDYe5RuvfMeBz5DdQSR-dcGSW3DZF", true, new Guid("00000000-0000-0000-0000-000000000000"), 8.8000000000000007, 1, "Star Wars", null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "1977" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -273,9 +272,9 @@ namespace Project.DAL.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Movies_CategoryId",
+                name: "IX_Movies_GenreId",
                 table: "Movies",
-                column: "CategoryId");
+                column: "GenreId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -305,7 +304,7 @@ namespace Project.DAL.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Categories");
+                name: "Genres");
         }
     }
 }

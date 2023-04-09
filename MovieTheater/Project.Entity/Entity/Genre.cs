@@ -5,12 +5,11 @@ using System.Text;
 
 namespace Project.Entity.Entity
 {
-    public class Category:BaseEntity
+    public class Genre:BaseEntity
     {
-        public string CategoryName { get; set; }
-        public string Description { get; set; }
+        public string GenreName { get; set; }
 
-        //Relational Properties
+        //Relational Poperties
         public virtual List<Movie> Movies { get; set; }
     }
 }

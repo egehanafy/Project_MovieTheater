@@ -7,19 +7,19 @@ using System.Text;
 
 namespace Project.BLL.Service
 {
-    public class CategoryService : ICategoryService
+    public class GenreService : IGenreService
     {
-        private IRepository<Category> _categoryRepo;
+        private IRepository<Genre> _genreRepo;
 
-        public CategoryService(IRepository<Category> categoryRepository)
+        public GenreService(IRepository<Genre> genreRepository)
         {
-            _categoryRepo = categoryRepository;
+            _genreRepo = genreRepository;
         }
-        public string CreateCategory(Category category)
+        public string CreateGenre(Genre genre)
         {
             try
             {
-                return _categoryRepo.Create(category);
+                return _genreRepo.Create(genre);
             }
             catch (Exception ex)
             {
@@ -27,11 +27,11 @@ namespace Project.BLL.Service
             }
         }
 
-        public string DeleteCategory(Category category)
+        public string DeleteGenre(Genre genre)
         {
             try
             {
-                return _categoryRepo.Delete(category);
+                return _genreRepo.Delete(genre);
             }
             catch (Exception ex)
             {
@@ -39,16 +39,16 @@ namespace Project.BLL.Service
             }
         }
 
-        public IEnumerable<Category> GetAllCategory()
+        public IEnumerable<Genre> GetAllGenres()
         {
-            return _categoryRepo.GetAll();
+            return _genreRepo.GetAll();
         }
 
-        public string UpdateCategory(Category category)
+        public string UpdateGenre(Genre genre)
         {
             try
             {
-                return _categoryRepo.Update(category);
+                return _genreRepo.Update(genre);
             }
             catch (Exception ex)
             {

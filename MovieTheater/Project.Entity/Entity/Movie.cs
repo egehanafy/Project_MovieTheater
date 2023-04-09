@@ -13,10 +13,10 @@ namespace Project.Entity.Entity
         public string Year { get; set; }
         public double Rating { get; set; }
         public string ImagePath { get; set; }
-        public int CategoryId { get; set; }
+        public int GenreId { get; set; }
 
         //Relational Properties
-        public virtual Category Category { get; set; }
+        public virtual Genre Genre { get; set; }
 
     }
 }

@@ -17,8 +17,8 @@ namespace Project.DAL.Context
         }
 
         public DbSet<Movie> Movies { get; set; }
-        public DbSet<Category> Categories { get; set; }
-        
+        public DbSet<Genre> Genres { get; set; }
+
 
         //FakeData
 
@@ -27,20 +27,18 @@ namespace Project.DAL.Context
             //AppUser
 
 
-            //Category
-            List<Category> categories = new List<Category>
+            //Genre
+            List<Genre> genres = new List<Genre>
             {
-                new Category
+                new Genre
                 {
                     Id = 1,
-                    CategoryName="Korku",
-                    Description="Korku fimleri"
+                    GenreName="Korku"
                 },
-                new Category
+                new Genre
                 {
                     Id = 2,
-                    CategoryName="Bilim Kurgu",
-                    Description="Bilim kurgu fimleri"
+                    GenreName="Bilim Kurgu"
                 }
             };
 
@@ -56,7 +54,7 @@ namespace Project.DAL.Context
                     Year = "1977",
                     Rating = 8.8D,
                     ImagePath = "https://t1.gstatic.com/licensed-image?q=tbn:ANd9GcSFqs2AfGte3gdgvgNmHogNiyN3r9VS3x-sAd2PDYe5RuvfMeBz5DdQSR-dcGSW3DZF",
-                    CategoryId = categories.Where(x=>x.CategoryName=="Bilim Kurgu").FirstOrDefault().Id
+                    GenreId = genres.Where(x=>x.GenreName=="Bilim Kurgu").FirstOrDefault().Id
                 },
                 new Movie
                 {
@@ -67,12 +65,12 @@ namespace Project.DAL.Context
                     Year = "1973",
                     Rating = 8.1D,
                     ImagePath = "https://upload.wikimedia.org/wikipedia/tr/5/59/Exorcistmovie.jpg",
-                    CategoryId = categories.Where(x=>x.CategoryName=="Korku").FirstOrDefault().Id
+                    GenreId = genres.Where(x=>x.GenreName=="Korku").FirstOrDefault().Id
                 }
             };
 
             builder.Entity<Movie>().HasData(movies);
-            builder.Entity<Category>().HasData(categories);
+            builder.Entity<Genre>().HasData(genres);
 
             base.OnModelCreating(builder);
         }
