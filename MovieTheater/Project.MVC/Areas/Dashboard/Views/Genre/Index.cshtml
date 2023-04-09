@@ -46,6 +46,11 @@
                             <tr>
                                 <td>@genre.Id</td>
                                 <td>@genre.GenreName</td>
+                                <td>
+                                <a class="btn btn-sm btn-warning" href="/Dashboard/Genre/Update/@genre.Id">Update</a>
+                                |
+                                    <a class="btn btn-sm btn-danger" href="/Dashboard/Genre/Delete/@genre.Id">Delete</a>
+                                </td>
                             </tr>
                         }
                     }

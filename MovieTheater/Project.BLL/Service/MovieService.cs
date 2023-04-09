@@ -49,6 +49,7 @@ namespace Project.BLL.Service
         {
             try
             {
+                movie.Status = Entity.Enum.Status.Updated;
                 return _movieRepo.Update(movie);
             }
             catch (Exception ex)

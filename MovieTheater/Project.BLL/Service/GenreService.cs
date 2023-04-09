@@ -39,6 +39,11 @@ namespace Project.BLL.Service
             }
         }
 
+        public Genre FindGenre(int id)
+        {
+            return _genreRepo.GetById(id);
+        }
+
         public IEnumerable<Genre> GetAllGenres()
         {
             return _genreRepo.GetAll();
@@ -48,6 +53,7 @@ namespace Project.BLL.Service
         {
             try
             {
+                genre.Status = Entity.Enum.Status.Updated;
                 return _genreRepo.Update(genre);
             }
             catch (Exception ex)

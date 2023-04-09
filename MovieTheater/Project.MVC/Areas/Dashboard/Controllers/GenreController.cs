@@ -16,6 +16,7 @@ namespace Project.MVC.Areas.Dashboard.Controllers
         {
             _genreService = genreService;
         }
+
         public IActionResult Index()
         {
             return View(_genreService.GetAllGenres().ToList());
@@ -25,6 +26,7 @@ namespace Project.MVC.Areas.Dashboard.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public IActionResult Create(GenreVM genreVM)
         {
@@ -34,6 +36,32 @@ namespace Project.MVC.Areas.Dashboard.Controllers
             };
 
             TempData["result"] = _genreService.CreateGenre(genre);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var deleted = _genreService.FindGenre(id);
+
+            if (deleted != null)
+            {
+                TempData["result"] = _genreService.DeleteGenre(deleted);
+                return RedirectToAction("Index");
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Update(int id)
+        {
+            var updated = _genreService.FindGenre(id);
+            return View(updated);
+        }
+
+        [HttpPost]
+        public IActionResult Update(Genre genre)
+        {
+            TempData["result"] = _genreService.UpdateGenre(genre);
             return RedirectToAction("Index");
         }
     }

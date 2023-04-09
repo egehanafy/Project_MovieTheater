@@ -168,3 +168,4 @@ D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.MVC\obj\Debug\netcoreapp
 D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.MVC\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
 D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.MVC\obj\Debug\netcoreapp3.1\Razor\Areas\Dashboard\Views\Genre\Index.cshtml.g.cs
 D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.MVC\obj\Debug\netcoreapp3.1\Razor\Areas\Dashboard\Views\Genre\Create.cshtml.g.cs
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.MVC\obj\Debug\netcoreapp3.1\Razor\Areas\Dashboard\Views\Genre\Update.cshtml.g.cs

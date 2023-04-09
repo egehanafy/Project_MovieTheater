@@ -11,5 +11,6 @@ namespace Project.BLL.AbstractService
         string CreateGenre(Genre genre);
         string DeleteGenre(Genre genre);
         string UpdateGenre(Genre genre);
+        Genre FindGenre(int id);
     }
 }
