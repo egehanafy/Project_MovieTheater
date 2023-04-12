@@ -34,7 +34,7 @@
                     if (Model.Count == 0)
                     {
                         <tr>
-                            <td colspan="5">
+                            <td colspan="6">
                                 <span>Herhangi bir film eklenmemis</span>
                             </td>
                         </tr>
@@ -45,7 +45,7 @@
                         {
                             <tr>
                             <td>
-                            <img src="@movie.ImagePath" style="width:100px;height:150px"/>
+                            <img src="~/image/movie/@movie.ImagePath" style="width:100px;height:150px"/>
                             </td>
                                 <td>@movie.Id</td>
                                 <td>@movie.Title</td>

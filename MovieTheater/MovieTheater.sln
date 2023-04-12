@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project.BLL", "Project.BLL\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project.DAL", "Project.DAL\Project.DAL.csproj", "{1AC5BA51-7CED-4868-89F4-87658C9B7972}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Porject.TestConsole", "Porject.TestConsole\Porject.TestConsole.csproj", "{A83ACE90-E31E-4EC1-8322-1EB0D18566E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Porject.TestConsole", "Porject.TestConsole\Porject.TestConsole.csproj", "{A83ACE90-E31E-4EC1-8322-1EB0D18566E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.MVC", "Project.MVC\Project.MVC.csproj", "{F325D8C6-A897-4C00-8250-C598633925F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project.MVC", "Project.MVC\Project.MVC.csproj", "{F325D8C6-A897-4C00-8250-C598633925F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.Common", "Project.Common\Project.Common.csproj", "{66548CC3-E7A9-452D-94F1-E5AE349A6BB7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{F325D8C6-A897-4C00-8250-C598633925F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F325D8C6-A897-4C00-8250-C598633925F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F325D8C6-A897-4C00-8250-C598633925F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66548CC3-E7A9-452D-94F1-E5AE349A6BB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66548CC3-E7A9-452D-94F1-E5AE349A6BB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66548CC3-E7A9-452D-94F1-E5AE349A6BB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66548CC3-E7A9-452D-94F1-E5AE349A6BB7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

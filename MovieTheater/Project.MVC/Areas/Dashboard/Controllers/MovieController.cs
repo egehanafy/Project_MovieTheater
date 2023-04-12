@@ -2,9 +2,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Project.BLL.AbstractService;
+using Project.Common;
 using Project.Entity.Entity;
 using Project.MVC.Areas.Dashboard.ViewModels;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Project.MVC.Areas.Dashboard.Controllers
 {
@@ -37,14 +40,36 @@ namespace Project.MVC.Areas.Dashboard.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(MovieVM movieVM, IFormFile imagePath)
+        public async Task<IActionResult> Create(MovieVM movieVM, IFormFile imagePath)
         {
-            //todo: Parametrede alinan ImagePath (.png .jpg .jpeg .gif .svg .bmp .webp)
+            string path = "";
+
+            var imageResult = ImageUploader.ImageChangeName(imagePath.FileName);
+
+            if (imageResult != "1")
+            {
+                path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\image\\movie", imageResult);
+
+                using(var stream = new FileStream(path, FileMode.Create))
+                {
+                    await imagePath.CopyToAsync(stream);
+                }
+
+                movieVM.ImagePath = imageResult;
+            }
+            else
+            {
+                TempData["result"] = "Uyumsuz format";
+
+                return View();
+            }
+
             Movie movie = new Movie
             {
                 Title = movieVM.Title,
                 Description = movieVM.Description,
-                GenreId = movieVM.Genre.Id
+                GenreId = movieVM.Genre.Id,
+                ImagePath = movieVM.ImagePath
             };
 
             TempData["result"] = _movieService.CreateMovie(movie);

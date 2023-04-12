@@ -2981,6 +2981,16 @@
           "bin/placeholder/Project.BLL.dll": {}
         }
       },
+      "Project.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/Project.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Project.Common.dll": {}
+        }
+      },
       "Project.DAL/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -8967,6 +8977,11 @@
       "path": "../Project.BLL/Project.BLL.csproj",
       "msbuildProject": "../Project.BLL/Project.BLL.csproj"
     },
+    "Project.Common/1.0.0": {
+      "type": "project",
+      "path": "../Project.Common/Project.Common.csproj",
+      "msbuildProject": "../Project.Common/Project.Common.csproj"
+    },
     "Project.DAL/1.0.0": {
       "type": "project",
       "path": "../Project.DAL/Project.DAL.csproj",
@@ -8983,6 +8998,7 @@
       "Microsoft.EntityFrameworkCore.Design >= 3.1.32",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.5",
       "Project.BLL >= 1.0.0",
+      "Project.Common >= 1.0.0",
       "Project.Entity >= 1.0.0"
     ]
   },
@@ -9020,6 +9036,9 @@
           "projectReferences": {
             "D:\\YZL3162\\Projelerim\\MovieTheater\\MovieTheater\\Project.BLL\\Project.BLL.csproj": {
               "projectPath": "D:\\YZL3162\\Projelerim\\MovieTheater\\MovieTheater\\Project.BLL\\Project.BLL.csproj"
+            },
+            "D:\\YZL3162\\Projelerim\\MovieTheater\\MovieTheater\\Project.Common\\Project.Common.csproj": {
+              "projectPath": "D:\\YZL3162\\Projelerim\\MovieTheater\\MovieTheater\\Project.Common\\Project.Common.csproj"
             },
             "D:\\YZL3162\\Projelerim\\MovieTheater\\MovieTheater\\Project.Entity\\Project.Entity.csproj": {
               "projectPath": "D:\\YZL3162\\Projelerim\\MovieTheater\\MovieTheater\\Project.Entity\\Project.Entity.csproj"

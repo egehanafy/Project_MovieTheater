@@ -1,0 +1,10 @@
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.Common\bin\Debug\netcoreapp3.1\Project.Common.deps.json
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.Common\bin\Debug\netcoreapp3.1\Project.Common.dll
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.Common\bin\Debug\netcoreapp3.1\Project.Common.pdb
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.Common\obj\Debug\netcoreapp3.1\Project.Common.csproj.AssemblyReference.cache
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.Common\obj\Debug\netcoreapp3.1\Project.Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.Common\obj\Debug\netcoreapp3.1\Project.Common.AssemblyInfoInputs.cache
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.Common\obj\Debug\netcoreapp3.1\Project.Common.AssemblyInfo.cs
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.Common\obj\Debug\netcoreapp3.1\Project.Common.csproj.CoreCompileInputs.cache
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.Common\obj\Debug\netcoreapp3.1\Project.Common.dll
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.Common\obj\Debug\netcoreapp3.1\Project.Common.pdb
