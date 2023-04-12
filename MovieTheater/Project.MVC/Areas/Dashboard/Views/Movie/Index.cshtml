@@ -21,6 +21,7 @@
         <table class="table table-hover">
             <thead>
                 <tr>
+                    <th>Image</th>
                     <th>#</th>
                     <th>Movie Name</th>
                     <th>Description</th>
@@ -43,6 +44,9 @@
                         foreach (var movie in Model)
                         {
                             <tr>
+                            <td>
+                            <img src="@movie.ImagePath" style="width:100px;height:150px"/>
+                            </td>
                                 <td>@movie.Id</td>
                                 <td>@movie.Title</td>
                                 <td>

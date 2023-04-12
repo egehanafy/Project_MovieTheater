@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Project.BLL.AbstractService;
 using Project.Entity.Entity;
@@ -36,8 +37,9 @@ namespace Project.MVC.Areas.Dashboard.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(MovieVM movieVM)
+        public IActionResult Create(MovieVM movieVM, IFormFile imagePath)
         {
+            //todo: Parametrede alinan ImagePath (.png .jpg .jpeg .gif .svg .bmp .webp)
             Movie movie = new Movie
             {
                 Title = movieVM.Title,

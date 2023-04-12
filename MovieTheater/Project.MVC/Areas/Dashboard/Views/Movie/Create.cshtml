@@ -9,7 +9,7 @@
         <h3>New Genre</h3>
     </div>
     <div class="card-body">
-        <form asp-action="Create" asp-controller="Movie" method="post">
+        <form asp-action="Create" asp-controller="Movie" method="post" enctype="multipart/form-data">
             <div class="mb-2">
                 <label>Title</label>
                 <input type="text" class="form-control" asp-for="Title" />
