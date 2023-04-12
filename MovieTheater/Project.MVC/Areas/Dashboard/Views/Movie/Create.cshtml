@@ -17,7 +17,7 @@
 
             <div class="mb-2">
                 <label>Description</label>
-                <input type="text" class="form-control" asp-for="Description" />
+                <textarea class="form-control" cols="5" rows="10" asp-for="Description"></textarea>
             </div>
 
             <div class="mb-2">
@@ -27,10 +27,14 @@
 
             <div class="mb-2">
                 <label>Select Genre</label>
-                <select class="form-control custom-select" asp-for="Genre.Id">
+                @*<select class="form-control custom-select" asp-for="Genre.Id">
                     <option>Select Genre</option>
                     <option>Korku</option>
                     <option>Bilim Kurgu</option>
+                </select>*@
+
+                <select class="form-control custom-select" asp-items="@ViewBag.Genres" asp-for="Genre.Id">
+                    <option selected="" disable>Please Select Category</option>
                 </select>
             </div>
 

@@ -1,9 +1,15 @@
-﻿
+﻿@model List<Project.Entity.Entity.Movie>
 @{
     ViewData["Title"] = "Movie";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
+@if (TempData["result"] != null)
+{
+    <div class="alert alert-info alert-dismissible mt-2">
+        <span>@TempData["result"]</span>
+    </div>
+}
 <div class="card mb-4 mt-4">
     <div class="card-header">
         <div class="d-flex justify-content-between">
@@ -23,17 +29,49 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Star Wars</td>
-                    <td>Yildiz Savaslari, George Lucsa tarafindan yaratilmis, oncelikle fimleriyle taninmis, sonraki yillarda cizgi roman, video oyunlari, televizyon yapimlari vb. dallarda ununu arttirmis kurgusal bir evren ve markadir.</td>
-                    <td>Bilim Kurgu</td>
-                    <td>
-                        <a class="btn btn-sm btn-warning" href="#">Update</a>
-                        |
-                        <a class="btn btn-sm btn-danger" href="#">Delete</a>
-                    </td>
-                </tr>
+                @{
+                    if (Model.Count == 0)
+                    {
+                        <tr>
+                            <td colspan="5">
+                                <span>Herhangi bir film eklenmemis</span>
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        foreach (var movie in Model)
+                        {
+                            <tr>
+                                <td>@movie.Id</td>
+                                <td>@movie.Title</td>
+                                <td>
+                                    @if (movie.Description != null)
+                                    {
+                                        @if (movie.Description.Length > 100)
+                                        {
+                                            @movie.Description.Substring(0,99) <span>[<a href="#">genislet...</a>]</span>
+                                        }
+                                        else
+                                        {
+                                            @movie.Description
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <span>Aciklama bulunmuyor</span>
+                                    }
+                                </td>
+                                <td>Buraya kategori gelecek</td>
+                                <td>
+                                    <a class="btn btn-sm btn-warning" asp-action="Update" asp-controller="Movie" asp-route-id="@movie.Id">Update</a>
+                                    |
+                                    <a class="btn btn-sm btn-danger" asp-action="Delete" asp-controller="Movie" asp-route-id="@movie.Id">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                }
             </tbody>
         </table>
     </div>
