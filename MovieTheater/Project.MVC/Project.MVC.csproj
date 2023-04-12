@@ -8,6 +8,7 @@
     <ProjectReference Include="..\Project.BLL\Project.BLL.csproj" />
     <ProjectReference Include="..\Project.Common\Project.Common.csproj" />
     <ProjectReference Include="..\Project.Entity\Project.Entity.csproj" />
+    <ProjectReference Include="..\Project.IOC\Project.IOC.csproj" />
   </ItemGroup>
 
   <ItemGroup>

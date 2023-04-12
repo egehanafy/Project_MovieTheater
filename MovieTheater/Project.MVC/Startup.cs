@@ -13,8 +13,10 @@ using Project.BLL.Service;
 using Project.DAL.Context;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Threading.Tasks;
+using Project.IOC.Container;
 
 namespace Project.MVC
 {
@@ -36,9 +38,7 @@ namespace Project.MVC
             services.AddDbContext<ProjectContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             //Service
-            services.AddTransient(typeof(IRepository<>), typeof(BaseRepository<>));
-            services.AddScoped<IMovieService, MovieService>();
-            services.AddScoped<IGenreService, GenreService>();
+            ServiceIOC.ServiceConfigure(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

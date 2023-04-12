@@ -73,6 +73,7 @@ namespace Project.DAL.Context
             builder.Entity<Genre>().HasData(genres);
 
             base.OnModelCreating(builder);
+
         }
     }
 }

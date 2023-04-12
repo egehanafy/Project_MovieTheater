@@ -1,0 +1,17 @@
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.IOC\bin\Debug\netcoreapp3.1\Project.IOC.deps.json
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.IOC\bin\Debug\netcoreapp3.1\Project.IOC.dll
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.IOC\bin\Debug\netcoreapp3.1\Project.IOC.pdb
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.IOC\bin\Debug\netcoreapp3.1\Project.BLL.dll
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.IOC\bin\Debug\netcoreapp3.1\Project.DAL.dll
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.IOC\bin\Debug\netcoreapp3.1\Project.Entity.dll
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.IOC\bin\Debug\netcoreapp3.1\Project.BLL.pdb
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.IOC\bin\Debug\netcoreapp3.1\Project.DAL.pdb
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.IOC\bin\Debug\netcoreapp3.1\Project.Entity.pdb
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.IOC\obj\Debug\netcoreapp3.1\Project.IOC.csproj.AssemblyReference.cache
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.IOC\obj\Debug\netcoreapp3.1\Project.IOC.GeneratedMSBuildEditorConfig.editorconfig
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.IOC\obj\Debug\netcoreapp3.1\Project.IOC.AssemblyInfoInputs.cache
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.IOC\obj\Debug\netcoreapp3.1\Project.IOC.AssemblyInfo.cs
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.IOC\obj\Debug\netcoreapp3.1\Project.IOC.csproj.CoreCompileInputs.cache
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.IOC\obj\Debug\netcoreapp3.1\Project.IOC.csproj.CopyComplete
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.IOC\obj\Debug\netcoreapp3.1\Project.IOC.dll
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.IOC\obj\Debug\netcoreapp3.1\Project.IOC.pdb

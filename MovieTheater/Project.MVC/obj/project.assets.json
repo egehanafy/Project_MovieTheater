@@ -47,6 +47,39 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Http.Abstractions/2.2.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Features": "2.2.0",
+          "System.Text.Encodings.Web": "4.5.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Abstractions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Http.Features/2.2.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "2.2.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore/3.1.32": {
         "type": "package",
         "dependencies": {
@@ -3018,6 +3051,21 @@
         "runtime": {
           "bin/placeholder/Project.Entity.dll": {}
         }
+      },
+      "Project.IOC/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.32",
+          "Project.BLL": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Project.IOC.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Project.IOC.dll": {}
+        }
       }
     }
   },
@@ -3069,6 +3117,32 @@
         "lib/netstandard2.0/Microsoft.AspNetCore.Html.Abstractions.xml",
         "microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
         "microsoft.aspnetcore.html.abstractions.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Http.Abstractions/2.2.0": {
+      "sha512": "Nxs7Z1q3f1STfLYKJSVXCs1iBl+Ya6E8o4Oy1bCxJ/rNI44E/0f6tbsrVqAWfB7jlnJfyaAtIalBVxPKUPQb4Q==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.http.abstractions/2.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Abstractions.xml",
+        "microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+        "microsoft.aspnetcore.http.abstractions.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Http.Features/2.2.0": {
+      "sha512": "ziFz5zH8f33En4dX81LW84I6XrYXKf9jg6aM39cM+LffN9KJahViKZ61dGMSO2gd3e+qe5yBRwsesvyqlZaSMg==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.http.features/2.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.xml",
+        "microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
+        "microsoft.aspnetcore.http.features.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Identity.EntityFrameworkCore/3.1.32": {
@@ -8991,6 +9065,11 @@
       "type": "project",
       "path": "../Project.Entity/Project.Entity.csproj",
       "msbuildProject": "../Project.Entity/Project.Entity.csproj"
+    },
+    "Project.IOC/1.0.0": {
+      "type": "project",
+      "path": "../Project.IOC/Project.IOC.csproj",
+      "msbuildProject": "../Project.IOC/Project.IOC.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -8999,7 +9078,8 @@
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.5",
       "Project.BLL >= 1.0.0",
       "Project.Common >= 1.0.0",
-      "Project.Entity >= 1.0.0"
+      "Project.Entity >= 1.0.0",
+      "Project.IOC >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -9042,6 +9122,9 @@
             },
             "D:\\YZL3162\\Projelerim\\MovieTheater\\MovieTheater\\Project.Entity\\Project.Entity.csproj": {
               "projectPath": "D:\\YZL3162\\Projelerim\\MovieTheater\\MovieTheater\\Project.Entity\\Project.Entity.csproj"
+            },
+            "D:\\YZL3162\\Projelerim\\MovieTheater\\MovieTheater\\Project.IOC\\Project.IOC.csproj": {
+              "projectPath": "D:\\YZL3162\\Projelerim\\MovieTheater\\MovieTheater\\Project.IOC\\Project.IOC.csproj"
             }
           }
         }

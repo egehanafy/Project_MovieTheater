@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Porject.TestConsole", "Porj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project.MVC", "Project.MVC\Project.MVC.csproj", "{F325D8C6-A897-4C00-8250-C598633925F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.Common", "Project.Common\Project.Common.csproj", "{66548CC3-E7A9-452D-94F1-E5AE349A6BB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project.Common", "Project.Common\Project.Common.csproj", "{66548CC3-E7A9-452D-94F1-E5AE349A6BB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.IOC", "Project.IOC\Project.IOC.csproj", "{CCB06F64-0F0B-4B1E-A3E0-775D63BDEF3F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{66548CC3-E7A9-452D-94F1-E5AE349A6BB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66548CC3-E7A9-452D-94F1-E5AE349A6BB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66548CC3-E7A9-452D-94F1-E5AE349A6BB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCB06F64-0F0B-4B1E-A3E0-775D63BDEF3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCB06F64-0F0B-4B1E-A3E0-775D63BDEF3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCB06F64-0F0B-4B1E-A3E0-775D63BDEF3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCB06F64-0F0B-4B1E-A3E0-775D63BDEF3F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

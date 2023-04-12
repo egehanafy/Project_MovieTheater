@@ -172,3 +172,5 @@ D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.MVC\obj\Debug\netcoreapp
 D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.MVC\obj\Debug\netcoreapp3.1\Razor\Areas\Dashboard\Views\Movie\Create.cshtml.g.cs
 D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.MVC\bin\Debug\netcoreapp3.1\Project.Common.dll
 D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.MVC\bin\Debug\netcoreapp3.1\Project.Common.pdb
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.MVC\bin\Debug\netcoreapp3.1\Project.IOC.dll
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.MVC\bin\Debug\netcoreapp3.1\Project.IOC.pdb
