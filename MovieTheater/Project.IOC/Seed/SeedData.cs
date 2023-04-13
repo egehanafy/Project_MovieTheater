@@ -23,13 +23,13 @@ namespace Project.IOC.Seed
                 //Genres
                 if (!context.Genres.Any())
                 {
-                    context.Genres.AddRange()
+                    context.Genres.AddRange();
                 }
 
                 //Movies
                 if (!context.Movies.Any())
                 {
-
+                    context.Genres.AddRange();
                 }
 
                 //...
