@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using Project.BLL.AbstractService;
 using Project.BLL.Service;
+using Project.Common;
 using Project.Entity.Entity;
 using Project.MVC.Models;
 using System;
@@ -22,24 +23,17 @@ namespace Project.MVC.Controllers
         }
         public IActionResult Index()
         {
-            //Movie newMovie = new Movie
-            //{
-            //    Id=2,
-            //    MovieName = "Mad Max",
-            //    UnitPrice = 0,
-            //    UnitsInStock = 0,
-            //    UpdatedDate = DateTime.Now,
-            //};
-
-            ////var result = _movieService.CreateMovie(newMovie);
-            //var result = _movieService.DeleteMovie(newMovie);
-
-            //var movies = _movieService.GetAllMovie().ToList();
             return View();
         }
 
         public IActionResult Privacy()
         {
+            return View();
+        }
+
+        public IActionResult Register()
+        {
+            MailSender.SendEmail("social.dedicate@gmail.com", "Test Mail", "Bu bir test mailidir.");
             return View();
         }
 
