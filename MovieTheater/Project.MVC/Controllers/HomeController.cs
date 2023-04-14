@@ -33,7 +33,7 @@ namespace Project.MVC.Controllers
 
         public IActionResult Register()
         {
-            MailSender.SendEmail("social.dedicate@gmail.com", "Test Mail", "Bu bir test mailidir.");
+            
             return View();
         }
 
