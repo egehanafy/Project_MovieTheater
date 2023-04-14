@@ -17,6 +17,7 @@ using System.ComponentModel.Design;
 using System.Linq;
 using System.Threading.Tasks;
 using Project.IOC.Container;
+using Project.IOC.Seed;
 
 namespace Project.MVC
 {
@@ -58,6 +59,8 @@ namespace Project.MVC
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            SeedData.Seed(app);
 
             app.UseAuthorization();
 
