@@ -1,4 +1,4 @@
-﻿
+﻿@model RegisterVM
 @{
     ViewData["Title"] = "Register";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -11,8 +11,28 @@
                 <h2>User Register</h2>
             </div>
             <div class="card-body">
-                <form>
-
+                <form method="post">
+                    <div class="mt-2">
+                        @Html.LabelFor(x=>x.Username)
+                        <span asp-validation-for="Username"></span>
+                        <input type="text" class="form-control" placeholder="Enter username" asp-for="Username"/>
+                    </div>
+                    <div class="mt-2">
+                        @Html.LabelFor(x=>x.Email)
+                        <span asp-validation-for="Email"></span>
+                        <input type="text" class="form-control" placeholder="Enter your e-mail" asp-for="Email"/>
+                    </div>
+                    <div class="mt-2">
+                        @Html.LabelFor(x=>x.Password)
+                        <span asp-validation-for="Password"></span>
+                        <input type="password" class="form-control" placeholder="Enter password" asp-for="Password"/>
+                    </div>
+                    <div class="mt-2">
+                        @Html.LabelFor(x=>x.ConfirmPassword)
+                        <span asp-validation-for="ConfirmPassword"></span>
+                        <input type="password" class="form-control" placeholder="Enter same password" asp-for="ConfirmPassword"/>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Register</button>
                 </form>
             </div>
         </div>

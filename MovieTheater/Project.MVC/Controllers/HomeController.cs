@@ -5,6 +5,7 @@ using Project.BLL.Service;
 using Project.Common;
 using Project.Entity.Entity;
 using Project.MVC.Models;
+using Project.MVC.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -35,6 +36,19 @@ namespace Project.MVC.Controllers
         {
             
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Register(RegisterVM registerVM)
+        {
+            if (ModelState.IsValid)
+            {
+                return View();
+            }
+            else
+            {
+                return View(registerVM);
+            }
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

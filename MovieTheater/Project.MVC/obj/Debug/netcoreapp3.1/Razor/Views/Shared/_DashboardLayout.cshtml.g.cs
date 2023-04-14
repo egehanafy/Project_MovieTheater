@@ -26,8 +26,15 @@ using Project.MVC.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.MVC\Views\_ViewImports.cshtml"
+using Project.MVC.Models.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8f4d519d0c9cb41a80222079e856809c89f94f97", @"/Views/Shared/_DashboardLayout.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"80ae9779d434f348bc1b97cbbf0b586dcea6d1a5", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0df719b8e25c6aead4649377e8f16324a31cca3c", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Shared__DashboardLayout : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     #nullable disable
@@ -80,7 +87,7 @@ using Project.MVC.Models;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n<!DOCTYPE html>\r\n<html lang=\"en\">\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8f4d519d0c9cb41a80222079e856809c89f94f977229", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8f4d519d0c9cb41a80222079e856809c89f94f977433", async() => {
                 WriteLiteral("\r\n    <meta charset=\"utf-8\" />\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\" />\r\n    <meta name=\"description\"");
                 BeginWriteAttribute("content", " content=\"", 287, "\"", 297, 0);
                 EndWriteAttribute();
@@ -88,7 +95,7 @@ using Project.MVC.Models;
                 BeginWriteAttribute("content", " content=\"", 326, "\"", 336, 0);
                 EndWriteAttribute();
                 WriteLiteral(" />\r\n    <title>Dashboard - SB Admin</title>\r\n    <link href=\"https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css\" rel=\"stylesheet\" />\r\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "8f4d519d0c9cb41a80222079e856809c89f94f978232", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "8f4d519d0c9cb41a80222079e856809c89f94f978436", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -115,7 +122,7 @@ using Project.MVC.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8f4d519d0c9cb41a80222079e856809c89f94f9710227", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8f4d519d0c9cb41a80222079e856809c89f94f9710431", async() => {
                 WriteLiteral(@"
     <nav class=""sb-topnav navbar navbar-expand navbar-dark bg-dark"">
         <!-- Navbar Brand-->
@@ -124,7 +131,7 @@ using Project.MVC.Models;
         <button class=""btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"" id=""sidebarToggle"" href=""#!""><i class=""fas fa-bars""></i></button>
         <!-- Navbar Search-->
         ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8f4d519d0c9cb41a80222079e856809c89f94f9710889", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8f4d519d0c9cb41a80222079e856809c89f94f9711093", async() => {
                     WriteLiteral(@"
             <div class=""input-group"">
                 <input class=""form-control"" type=""text"" placeholder=""Search for..."" aria-label=""Search for..."" aria-describedby=""btnNavbarSearch"" />
@@ -166,7 +173,7 @@ using Project.MVC.Models;
                     <div class=""nav"">
         ");
                 WriteLiteral("                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8f4d519d0c9cb41a80222079e856809c89f94f9713751", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8f4d519d0c9cb41a80222079e856809c89f94f9713955", async() => {
                     WriteLiteral("\r\n                            <div class=\"sb-nav-link-icon\"><i class=\"fas fa-tachometer-alt\"></i></div>\r\n                            Dashboard\r\n                        ");
                 }
                 );
@@ -185,7 +192,7 @@ using Project.MVC.Models;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8f4d519d0c9cb41a80222079e856809c89f94f9715468", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8f4d519d0c9cb41a80222079e856809c89f94f9715672", async() => {
                     WriteLiteral("\r\n                            <div class=\"sb-nav-link-icon\"><i class=\"fa-solid fa-list\"></i></div>\r\n                            Genre\r\n                        ");
                 }
                 );
@@ -204,7 +211,7 @@ using Project.MVC.Models;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8f4d519d0c9cb41a80222079e856809c89f94f9717176", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8f4d519d0c9cb41a80222079e856809c89f94f9717380", async() => {
                     WriteLiteral("\r\n                            <div class=\"sb-nav-link-icon\"><i class=\"fa-solid fa-film\"></i></div>\r\n                            Movie\r\n                        ");
                 }
                 );
