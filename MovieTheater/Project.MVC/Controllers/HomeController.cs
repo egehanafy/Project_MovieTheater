@@ -62,7 +62,7 @@ namespace Project.MVC.Controllers
                 {
                     registerToken = _userManager.GenerateEmailConfirmationTokenAsync(appUser).Result;
 
-                    MailSender.SendEmail(registerVM.Email, "Confirmation", $"{registerVM.Username} kayit isleminiz olusturuldu. Uyeliginizi asagidaki aktivasyon linkine tiklayarak tamamlayabilirsiniz.");
+                    MailSender.SendEmail(registerVM.Email, "Confirmation", $"{registerVM.Username} kayit isleminiz olusturuldu. Uyeliginizi asagidaki aktivasyon linkine tiklayarak tamamlayabilirsiniz. https://localhost:44313/home/confirmation"+appUser.Id);
 
                     return View();
                 }
