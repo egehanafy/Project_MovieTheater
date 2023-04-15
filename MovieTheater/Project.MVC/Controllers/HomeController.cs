@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Project.BLL.AbstractService;
 using Project.BLL.Service;
@@ -16,11 +17,13 @@ namespace Project.MVC.Controllers
 {
     public class HomeController : Controller
     {
-        private IMovieService _movieService;
+        private readonly IMovieService _movieService;
+        private readonly UserManager<AppUser> _userManager;
 
-        public HomeController(IMovieService movieService)
+        public HomeController(IMovieService movieService, UserManager<AppUser> userManager)
         {
             _movieService = movieService;
+            _userManager = userManager;
         }
         public IActionResult Index()
         {
@@ -39,11 +42,35 @@ namespace Project.MVC.Controllers
         }
 
         [HttpPost]
-        public IActionResult Register(RegisterVM registerVM)
+        public async Task<IActionResult> Register(RegisterVM registerVM)
         {
             if (ModelState.IsValid)
             {
-                return View();
+                //kullanici bilgilerini aldiktan sonra kayit islemi ardindan kullanicinin mail adresine konfirmasyon mailinin gonderilmesi
+
+                AppUser appUser = new AppUser
+                {
+                    UserName = registerVM.Username,
+                    Email = registerVM.Email
+                };
+
+                var result = await _userManager.CreateAsync(appUser, registerVM.ConfirmPassword);
+
+                var registerToken = "";
+
+                if (result.Succeeded)
+                {
+                    registerToken = _userManager.GenerateEmailConfirmationTokenAsync(appUser).Result;
+
+                    MailSender.SendEmail(registerVM.Email, "Confirmation", $"{registerVM.Username} kayit isleminiz olusturuldu. Uyeliginizi asagidaki aktivasyon linkine tiklayarak tamamlayabilirsiniz.");
+
+                    return View();
+                }
+                else
+                {
+                    return View();
+                }
+
             }
             else
             {
