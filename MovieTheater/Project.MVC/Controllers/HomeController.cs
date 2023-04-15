@@ -64,6 +64,8 @@ namespace Project.MVC.Controllers
 
                     MailSender.SendEmail(registerVM.Email, "Confirmation", $"{registerVM.Username} kayit isleminiz olusturuldu. Uyeliginizi asagidaki aktivasyon linkine tiklayarak tamamlayabilirsiniz. https://localhost:44313/home/confirmation"+appUser.Id);
 
+                    TempData["result"] = $"{appUser.UserName} adresine aktivasyon maili gonderildi. Lutfen e-mailinizi kontrol ediniz.";
+
                     return View();
                 }
                 else
