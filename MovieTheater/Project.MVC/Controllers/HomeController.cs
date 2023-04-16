@@ -60,9 +60,17 @@ namespace Project.MVC.Controllers
 
                 if (result.Succeeded)
                 {
-                    registerToken = _userManager.GenerateEmailConfirmationTokenAsync(appUser).Result;
+                    while (true)
+                    {
+                        registerToken = _userManager.GenerateEmailConfirmationTokenAsync(appUser).Result;
 
-                    MailSender.SendEmail(registerVM.Email, "Confirmation", $"{registerVM.Username} kayit isleminiz olusturuldu. Uyeliginizi asagidaki aktivasyon linkine tiklayarak tamamlayabilirsiniz. https://localhost:44313/home/confirmation"+appUser.Id);
+                        if (!registerToken.Contains("/")&&!registerToken.Contains("+"))
+                        {
+                            break;
+                        }
+                    }
+
+                    MailSender.SendEmail(registerVM.Email, "Confirmation", $"{registerVM.Username} kayit isleminiz olusturuldu. Uyeliginizi asagidaki aktivasyon linkine tiklayarak tamamlayabilirsiniz. https://localhost:44313/home/confirmation"+appUser.Id+"/"+registerToken);
 
                     TempData["result"] = $"{appUser.UserName} adresine aktivasyon maili gonderildi. Lutfen e-mailinizi kontrol ediniz.";
 
@@ -78,6 +86,27 @@ namespace Project.MVC.Controllers
             {
                 return View(registerVM);
             }
+        }
+
+        public async Task<IActionResult> Confirmation(int id, string registerCode)
+        {
+            if (id != null && registerCode != null)
+            {
+                var user = await _userManager.FindByIdAsync(id.ToString());
+
+                var confirm = await _userManager.ConfirmEmailAsync(user, registerCode);
+
+                if (confirm.Succeeded)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View();
+                }
+            }
+
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

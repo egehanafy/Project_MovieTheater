@@ -18,6 +18,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Project.IOC.Container;
 using Project.IOC.Seed;
+using Project.Entity.Entity;
+using Microsoft.AspNetCore.Identity;
 
 namespace Project.MVC
 {
@@ -40,6 +42,10 @@ namespace Project.MVC
 
             //Service
             ServiceIOC.ServiceConfigure(services);
+
+            //Identity Service
+            //Token olusturmak istedigimizde bu metodu dahil etmeliyiz.
+            services.AddIdentity<AppUser, AppUserRole>().AddEntityFrameworkStores<ProjectContext>().AddDefaultTokenProviders();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -70,6 +76,11 @@ namespace Project.MVC
                 endpoints.MapControllerRoute(
                     name: "areas",
                     pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
+                //Confirmation Route
+                endpoints.MapControllerRoute(
+                    name: "confirmation",
+                    pattern: "{controller=Home}/{action=confirmation}/{id}/{registerCode}");
 
                 //Default Route
                 endpoints.MapControllerRoute(
