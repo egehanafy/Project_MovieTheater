@@ -88,6 +88,11 @@ namespace Project.MVC.Controllers
             }
         }
 
+        public IActionResult AddToCart()
+        {
+            return View();
+        }
+
         public async Task<IActionResult> Confirmation(int id, string registerCode)
         {
             if (id != null && registerCode != null)
