@@ -46,6 +46,12 @@ namespace Project.MVC
             //Identity Service
             //Token olusturmak istedigimizde bu metodu dahil etmeliyiz.
             services.AddIdentity<AppUser, AppUserRole>().AddEntityFrameworkStores<ProjectContext>().AddDefaultTokenProviders();
+
+            services.AddSession(x =>
+            {
+                x.Cookie.Name = "movie_cart_session";
+                x.IdleTimeout = TimeSpan.FromMinutes(1);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -65,6 +71,8 @@ namespace Project.MVC
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseSession();
 
             SeedData.Seed(app);
 
