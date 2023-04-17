@@ -11,5 +11,6 @@ namespace Project.BLL.AbstractService
         string CreateMovie(Movie movie);
         string DeleteMovie(Movie movie);
         string UpdateMovie(Movie movie);
+        Movie GetById(int id);
     }
 }

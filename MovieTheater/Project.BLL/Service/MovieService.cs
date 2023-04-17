@@ -45,6 +45,11 @@ namespace Project.BLL.Service
             return _movieRepo.GetAll();
         }
 
+        public Movie GetById(int id)
+        {
+            return _movieRepo.GetById(id);
+        }
+
         public string UpdateMovie(Movie movie)
         {
             try
