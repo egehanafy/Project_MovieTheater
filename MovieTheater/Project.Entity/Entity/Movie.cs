@@ -20,6 +20,7 @@ namespace Project.Entity.Entity
 
         //Relational Properties
         public virtual Genre Genre { get; set; }
+        public virtual List<Ticket> Tickets { get; set; }
 
     }
 }

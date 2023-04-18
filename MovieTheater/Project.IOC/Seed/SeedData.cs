@@ -61,6 +61,22 @@ namespace Project.IOC.Seed
                         });
                 }
 
+                //Tickets
+                if (!context.Tickets.Any())
+                {
+                    context.Tickets.AddRange(
+                        new Ticket
+                        {
+                            UnitPrice = 50,
+                            MovieId = 1
+                        },
+                        new Ticket
+                        {
+                            UnitPrice = 50,
+                            MovieId = 2
+                        });
+                }
+
                 //...
 
                 context.SaveChanges();

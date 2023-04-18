@@ -17,6 +17,7 @@ namespace Project.IOC.Container
             services.AddTransient(typeof(IRepository<>), typeof(BaseRepository<>));
             services.AddScoped<IMovieService, MovieService>();
             services.AddScoped<IGenreService, GenreService>();
+            services.AddScoped<ITicketService, TicketService>();
         }
     }
 }

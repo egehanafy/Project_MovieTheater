@@ -13,12 +13,12 @@ namespace Project.Common
         public int Id { get; set; }
         public short Quantity { get; set; }
         public string MovieTitle { get; set; }
-        public decimal? Price { get; set; }
+        public decimal? UnitPrice { get; set; }
         public decimal? SubTotal
         {
             get
             {
-                return Quantity * Price;
+                return Quantity * UnitPrice;
             }
 
 
