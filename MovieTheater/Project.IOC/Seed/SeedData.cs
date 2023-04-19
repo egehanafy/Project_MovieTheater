@@ -47,6 +47,7 @@ namespace Project.IOC.Seed
                             Year = "1977",
                             Rating = 8.8D,
                             ImagePath = "https://t1.gstatic.com/licensed-image?q=tbn:ANd9GcSFqs2AfGte3gdgvgNmHogNiyN3r9VS3x-sAd2PDYe5RuvfMeBz5DdQSR-dcGSW3DZF",
+                            UnitPrice = 120,
                             GenreId = 2
                         },
                         new Movie
@@ -57,23 +58,43 @@ namespace Project.IOC.Seed
                             Year = "1973",
                             Rating = 8.1D,
                             ImagePath = "https://upload.wikimedia.org/wikipedia/tr/5/59/Exorcistmovie.jpg",
+                            UnitPrice = 100,
                             GenreId = 1
                         });
                 }
 
-                //Tickets
-                if (!context.Tickets.Any())
+                //Halls
+                if (!context.Halls.Any())
                 {
-                    context.Tickets.AddRange(
-                        new Ticket
+                    context.Halls.AddRange(
+                        new Hall
                         {
-                            UnitPrice = 50,
-                            MovieId = 1
+                            Name = "Salon 1"
                         },
-                        new Ticket
+                        new Hall
                         {
-                            UnitPrice = 50,
-                            MovieId = 2
+                            Name = "Salon 2"
+                        });
+                }
+
+                //Seats
+                if (!context.Seats.Any())
+                {
+                    context.Seats.AddRange(
+                        new Seat
+                        {
+                            Letter = "A",
+                            No = 1
+                        },
+                        new Seat
+                        {
+                            Letter = "B",
+                            No = 1
+                        },
+                        new Seat
+                        {
+                            Letter = "C",
+                            No = 1
                         });
                 }
 

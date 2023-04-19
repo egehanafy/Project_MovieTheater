@@ -2,6 +2,7 @@
 using Project.BLL.Abstract;
 using Project.BLL.AbstractService;
 using Project.BLL.Concrete;
+using Project.BLL.IntService;
 using Project.BLL.Service;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,8 @@ namespace Project.IOC.Container
             services.AddScoped<IMovieService, MovieService>();
             services.AddScoped<IGenreService, GenreService>();
             services.AddScoped<ITicketService, TicketService>();
+            services.AddScoped<IHallService, HallService>();
+            services.AddScoped<ISeatService, SeatService>();
         }
     }
 }

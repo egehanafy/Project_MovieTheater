@@ -10,8 +10,8 @@ using Project.DAL.Context;
 namespace Project.DAL.Migrations
 {
     [DbContext(typeof(ProjectContext))]
-    [Migration("20230409191830_initialDatabase")]
-    partial class initialDatabase
+    [Migration("20230419010644_addHallAndSeat")]
+    partial class addHallAndSeat
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -241,6 +241,7 @@ namespace Project.DAL.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("GenreName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
@@ -264,28 +265,48 @@ namespace Project.DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Genres");
+                });
 
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedDate = new DateTime(2023, 4, 9, 22, 18, 30, 470, DateTimeKind.Local).AddTicks(8645),
-                            GenreName = "Korku",
-                            IsActive = true,
-                            MasterId = new Guid("00000000-0000-0000-0000-000000000000"),
-                            Status = 1,
-                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedDate = new DateTime(2023, 4, 9, 22, 18, 30, 471, DateTimeKind.Local).AddTicks(6713),
-                            GenreName = "Bilim Kurgu",
-                            IsActive = true,
-                            MasterId = new Guid("00000000-0000-0000-0000-000000000000"),
-                            Status = 1,
-                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        });
+            modelBuilder.Entity("Project.Entity.Entity.Hall", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CreatedComputerName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedIpAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid>("MasterId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UpdatedComputerName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdatedIpAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Halls");
                 });
 
             modelBuilder.Entity("Project.Entity.Entity.Movie", b =>
@@ -305,12 +326,16 @@ namespace Project.DAL.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(1000)")
+                        .HasMaxLength(1000);
 
                     b.Property<TimeSpan>("Duration")
                         .HasColumnType("time");
 
                     b.Property<int>("GenreId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("HallId")
                         .HasColumnType("int");
 
                     b.Property<string>("ImagePath")
@@ -329,7 +354,11 @@ namespace Project.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("UnitPrice")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("UpdatedComputerName")
                         .HasColumnType("nvarchar(max)");
@@ -347,41 +376,106 @@ namespace Project.DAL.Migrations
 
                     b.HasIndex("GenreId");
 
-                    b.ToTable("Movies");
+                    b.HasIndex("HallId");
 
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedDate = new DateTime(2023, 4, 9, 22, 18, 30, 471, DateTimeKind.Local).AddTicks(7025),
-                            Description = "Yildiz Savaslari, George Lucsa tarafindan yaratilmis, oncelikle fimleriyle taninmis, sonraki yillarda cizgi roman, video oyunlari, televizyon yapimlari vb. dallarda ununu arttirmis kurgusal bir evren ve markadir.",
-                            Duration = new TimeSpan(72359999999),
-                            GenreId = 2,
-                            ImagePath = "https://t1.gstatic.com/licensed-image?q=tbn:ANd9GcSFqs2AfGte3gdgvgNmHogNiyN3r9VS3x-sAd2PDYe5RuvfMeBz5DdQSR-dcGSW3DZF",
-                            IsActive = true,
-                            MasterId = new Guid("00000000-0000-0000-0000-000000000000"),
-                            Rating = 8.8000000000000007,
-                            Status = 1,
-                            Title = "Star Wars",
-                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Year = "1977"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedDate = new DateTime(2023, 4, 9, 22, 18, 30, 472, DateTimeKind.Local).AddTicks(96),
-                            Description = "Seytan, William Friedkin'in yonettigi 1973 tarihli bir ABD yapimi filmdir. Tum dunyada elestiriler alan bu filmin setinde de kadronun basina ilginc seyler geldi.",
-                            Duration = new TimeSpan(0, 2, 7, 12, 0),
-                            GenreId = 1,
-                            ImagePath = "https://upload.wikimedia.org/wikipedia/tr/5/59/Exorcistmovie.jpg",
-                            IsActive = true,
-                            MasterId = new Guid("00000000-0000-0000-0000-000000000000"),
-                            Rating = 8.0999999999999996,
-                            Status = 1,
-                            Title = "Exorcism",
-                            UpdatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Year = "1973"
-                        });
+                    b.ToTable("Movies");
+                });
+
+            modelBuilder.Entity("Project.Entity.Entity.Seat", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CreatedComputerName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedIpAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("HallId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Letter")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("MasterId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("No")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UpdatedComputerName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdatedIpAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("HallId");
+
+                    b.ToTable("Seats");
+                });
+
+            modelBuilder.Entity("Project.Entity.Entity.Ticket", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CreatedComputerName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedIpAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid>("MasterId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("MovieId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("UnitPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("UpdatedComputerName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdatedIpAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MovieId");
+
+                    b.ToTable("Tickets");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -440,6 +534,30 @@ namespace Project.DAL.Migrations
                     b.HasOne("Project.Entity.Entity.Genre", "Genre")
                         .WithMany("Movies")
                         .HasForeignKey("GenreId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Project.Entity.Entity.Hall", "Hall")
+                        .WithMany("Movies")
+                        .HasForeignKey("HallId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Project.Entity.Entity.Seat", b =>
+                {
+                    b.HasOne("Project.Entity.Entity.Hall", "Hall")
+                        .WithMany("Seats")
+                        .HasForeignKey("HallId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Project.Entity.Entity.Ticket", b =>
+                {
+                    b.HasOne("Project.Entity.Entity.Movie", "Movie")
+                        .WithMany("Tickets")
+                        .HasForeignKey("MovieId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

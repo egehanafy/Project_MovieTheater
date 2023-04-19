@@ -19,11 +19,13 @@ namespace Project.MVC.Controllers
     public class HomeController : Controller
     {
         private readonly IMovieService _movieService;
+        private readonly ITicketService _ticketService;
         private readonly UserManager<AppUser> _userManager;
 
-        public HomeController(IMovieService movieService, UserManager<AppUser> userManager)
+        public HomeController(IMovieService movieService, ITicketService ticketService, UserManager<AppUser> userManager)
         {
             _movieService = movieService;
+            _ticketService = ticketService;
             _userManager = userManager;
         }
         public IActionResult Index()
@@ -105,11 +107,12 @@ namespace Project.MVC.Controllers
 
 
             var movie = _movieService.GetById(id);
+            var ticket = _ticketService.GetById(id);
 
             CartItem cartItem = new CartItem();
             cartItem.Id = movie.Id;
             cartItem.MovieTitle = movie.Title;
-            //cartItem.Price = movie. //todo: ticket price eklenecek
+            cartItem.UnitPrice = ticket.UnitPrice;
 
             cartSession.AddItem(cartItem);
             SessionHelper.SetJsonProduct(HttpContext.Session, "sepet", cartSession);

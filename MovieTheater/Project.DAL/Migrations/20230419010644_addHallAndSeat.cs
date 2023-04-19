@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Project.DAL.Migrations
 {
-    public partial class initialDatabase : Migration
+    public partial class addHallAndSeat : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -65,11 +65,33 @@ namespace Project.DAL.Migrations
                     UpdatedIpAddress = table.Column<string>(nullable: true),
                     IsActive = table.Column<bool>(nullable: false),
                     Status = table.Column<int>(nullable: false),
-                    GenreName = table.Column<string>(nullable: true)
+                    GenreName = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Genres", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Halls",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    MasterId = table.Column<Guid>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: false),
+                    CreatedComputerName = table.Column<string>(nullable: true),
+                    CreatedIpAddress = table.Column<string>(nullable: true),
+                    UpdatedDate = table.Column<DateTime>(nullable: false),
+                    UpdatedComputerName = table.Column<string>(nullable: true),
+                    UpdatedIpAddress = table.Column<string>(nullable: true),
+                    IsActive = table.Column<bool>(nullable: false),
+                    Status = table.Column<int>(nullable: false),
+                    Name = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Halls", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -193,13 +215,15 @@ namespace Project.DAL.Migrations
                     UpdatedIpAddress = table.Column<string>(nullable: true),
                     IsActive = table.Column<bool>(nullable: false),
                     Status = table.Column<int>(nullable: false),
-                    Title = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true),
+                    Title = table.Column<string>(nullable: false),
+                    Description = table.Column<string>(maxLength: 1000, nullable: true),
                     Duration = table.Column<TimeSpan>(nullable: false),
                     Year = table.Column<string>(nullable: true),
                     Rating = table.Column<double>(nullable: false),
                     ImagePath = table.Column<string>(nullable: true),
-                    GenreId = table.Column<int>(nullable: false)
+                    UnitPrice = table.Column<decimal>(nullable: false),
+                    GenreId = table.Column<int>(nullable: false),
+                    HallId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -210,27 +234,72 @@ namespace Project.DAL.Migrations
                         principalTable: "Genres",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Movies_Halls_HallId",
+                        column: x => x.HallId,
+                        principalTable: "Halls",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.InsertData(
-                table: "Genres",
-                columns: new[] { "Id", "CreatedComputerName", "CreatedDate", "CreatedIpAddress", "GenreName", "IsActive", "MasterId", "Status", "UpdatedComputerName", "UpdatedDate", "UpdatedIpAddress" },
-                values: new object[] { 1, null, new DateTime(2023, 4, 9, 22, 18, 30, 470, DateTimeKind.Local).AddTicks(8645), null, "Korku", true, new Guid("00000000-0000-0000-0000-000000000000"), 1, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null });
+            migrationBuilder.CreateTable(
+                name: "Seats",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    MasterId = table.Column<Guid>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: false),
+                    CreatedComputerName = table.Column<string>(nullable: true),
+                    CreatedIpAddress = table.Column<string>(nullable: true),
+                    UpdatedDate = table.Column<DateTime>(nullable: false),
+                    UpdatedComputerName = table.Column<string>(nullable: true),
+                    UpdatedIpAddress = table.Column<string>(nullable: true),
+                    IsActive = table.Column<bool>(nullable: false),
+                    Status = table.Column<int>(nullable: false),
+                    Letter = table.Column<string>(nullable: true),
+                    No = table.Column<int>(nullable: false),
+                    HallId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Seats", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Seats_Halls_HallId",
+                        column: x => x.HallId,
+                        principalTable: "Halls",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
 
-            migrationBuilder.InsertData(
-                table: "Genres",
-                columns: new[] { "Id", "CreatedComputerName", "CreatedDate", "CreatedIpAddress", "GenreName", "IsActive", "MasterId", "Status", "UpdatedComputerName", "UpdatedDate", "UpdatedIpAddress" },
-                values: new object[] { 2, null, new DateTime(2023, 4, 9, 22, 18, 30, 471, DateTimeKind.Local).AddTicks(6713), null, "Bilim Kurgu", true, new Guid("00000000-0000-0000-0000-000000000000"), 1, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null });
-
-            migrationBuilder.InsertData(
-                table: "Movies",
-                columns: new[] { "Id", "CreatedComputerName", "CreatedDate", "CreatedIpAddress", "Description", "Duration", "GenreId", "ImagePath", "IsActive", "MasterId", "Rating", "Status", "Title", "UpdatedComputerName", "UpdatedDate", "UpdatedIpAddress", "Year" },
-                values: new object[] { 2, null, new DateTime(2023, 4, 9, 22, 18, 30, 472, DateTimeKind.Local).AddTicks(96), null, "Seytan, William Friedkin'in yonettigi 1973 tarihli bir ABD yapimi filmdir. Tum dunyada elestiriler alan bu filmin setinde de kadronun basina ilginc seyler geldi.", new TimeSpan(0, 2, 7, 12, 0), 1, "https://upload.wikimedia.org/wikipedia/tr/5/59/Exorcistmovie.jpg", true, new Guid("00000000-0000-0000-0000-000000000000"), 8.0999999999999996, 1, "Exorcism", null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "1973" });
-
-            migrationBuilder.InsertData(
-                table: "Movies",
-                columns: new[] { "Id", "CreatedComputerName", "CreatedDate", "CreatedIpAddress", "Description", "Duration", "GenreId", "ImagePath", "IsActive", "MasterId", "Rating", "Status", "Title", "UpdatedComputerName", "UpdatedDate", "UpdatedIpAddress", "Year" },
-                values: new object[] { 1, null, new DateTime(2023, 4, 9, 22, 18, 30, 471, DateTimeKind.Local).AddTicks(7025), null, "Yildiz Savaslari, George Lucsa tarafindan yaratilmis, oncelikle fimleriyle taninmis, sonraki yillarda cizgi roman, video oyunlari, televizyon yapimlari vb. dallarda ununu arttirmis kurgusal bir evren ve markadir.", new TimeSpan(72359999999), 2, "https://t1.gstatic.com/licensed-image?q=tbn:ANd9GcSFqs2AfGte3gdgvgNmHogNiyN3r9VS3x-sAd2PDYe5RuvfMeBz5DdQSR-dcGSW3DZF", true, new Guid("00000000-0000-0000-0000-000000000000"), 8.8000000000000007, 1, "Star Wars", null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "1977" });
+            migrationBuilder.CreateTable(
+                name: "Tickets",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    MasterId = table.Column<Guid>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: false),
+                    CreatedComputerName = table.Column<string>(nullable: true),
+                    CreatedIpAddress = table.Column<string>(nullable: true),
+                    UpdatedDate = table.Column<DateTime>(nullable: false),
+                    UpdatedComputerName = table.Column<string>(nullable: true),
+                    UpdatedIpAddress = table.Column<string>(nullable: true),
+                    IsActive = table.Column<bool>(nullable: false),
+                    Status = table.Column<int>(nullable: false),
+                    UnitPrice = table.Column<decimal>(nullable: false),
+                    MovieId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Tickets", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Tickets_Movies_MovieId",
+                        column: x => x.MovieId,
+                        principalTable: "Movies",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -275,6 +344,21 @@ namespace Project.DAL.Migrations
                 name: "IX_Movies_GenreId",
                 table: "Movies",
                 column: "GenreId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Movies_HallId",
+                table: "Movies",
+                column: "HallId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Seats_HallId",
+                table: "Seats",
+                column: "HallId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Tickets_MovieId",
+                table: "Tickets",
+                column: "MovieId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -295,7 +379,10 @@ namespace Project.DAL.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Movies");
+                name: "Seats");
+
+            migrationBuilder.DropTable(
+                name: "Tickets");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -304,7 +391,13 @@ namespace Project.DAL.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
+                name: "Movies");
+
+            migrationBuilder.DropTable(
                 name: "Genres");
+
+            migrationBuilder.DropTable(
+                name: "Halls");
         }
     }
 }
