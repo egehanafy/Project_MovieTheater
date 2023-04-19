@@ -33,6 +33,7 @@ namespace Project.IOC.Seed
                         {
                             GenreName = "Bilim Kurgu"
                         });
+                    context.SaveChanges();
                 }
 
                 //Movies
@@ -61,6 +62,7 @@ namespace Project.IOC.Seed
                             UnitPrice = 100,
                             GenreId = 1
                         });
+                    context.SaveChanges();
                 }
 
                 //Halls
@@ -75,6 +77,7 @@ namespace Project.IOC.Seed
                         {
                             Name = "Salon 2"
                         });
+                    context.SaveChanges();
                 }
 
                 ////Seats
@@ -93,6 +96,7 @@ namespace Project.IOC.Seed
                             No = 1,
                             HallId = 2
                         });
+                    context.SaveChanges();
                 }
 
                 //...

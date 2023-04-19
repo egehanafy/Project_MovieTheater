@@ -112,7 +112,7 @@ namespace Project.MVC.Controllers
             CartItem cartItem = new CartItem();
             cartItem.Id = movie.Id;
             cartItem.MovieTitle = movie.Title;
-            cartItem.UnitPrice = ticket.UnitPrice;
+            cartItem.UnitPrice = movie.UnitPrice;
 
             cartSession.AddItem(cartItem);
             SessionHelper.SetJsonProduct(HttpContext.Session, "sepet", cartSession);

@@ -8,8 +8,6 @@ namespace Project.Entity.Entity
 {
     public class Ticket:BaseEntity
     {
-        [Required]
-        public decimal UnitPrice { get; set; }
         public int? MovieId { get; set; }
 
         //Relational Properties
