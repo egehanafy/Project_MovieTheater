@@ -18,8 +18,8 @@ namespace Project.Entity.Entity
         public string ImagePath { get; set; }
         [Required]
         public decimal UnitPrice { get; set; }
-        public int GenreId { get; set; }
-        public int HallId { get; set; }
+        public int? GenreId { get; set; }
+        public int? HallId { get; set; }
 
         //Relational Properties
         public virtual Genre Genre { get; set; }

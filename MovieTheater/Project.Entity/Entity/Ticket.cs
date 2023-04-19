@@ -10,7 +10,7 @@ namespace Project.Entity.Entity
     {
         [Required]
         public decimal UnitPrice { get; set; }
-        public int MovieId { get; set; }
+        public int? MovieId { get; set; }
 
         //Relational Properties
         public virtual Movie Movie { get; set; }

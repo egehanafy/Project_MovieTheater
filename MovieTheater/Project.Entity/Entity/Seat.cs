@@ -9,7 +9,7 @@ namespace Project.Entity.Entity
     {
         public string Letter { get; set; }
         public int No { get; set; }
-        public int HallId { get; set; }
+        public int? HallId { get; set; }
 
         //Relational Properties
         public virtual Hall Hall { get; set; }

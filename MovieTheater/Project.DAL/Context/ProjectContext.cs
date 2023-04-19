@@ -31,5 +31,6 @@ namespace Project.DAL.Context
             base.OnModelCreating(builder);
 
         }
+
     }
 }

@@ -77,24 +77,21 @@ namespace Project.IOC.Seed
                         });
                 }
 
-                //Seats
+                ////Seats
                 if (!context.Seats.Any())
                 {
                     context.Seats.AddRange(
                         new Seat
                         {
                             Letter = "A",
-                            No = 1
+                            No = 1,
+                            HallId = 1
                         },
                         new Seat
                         {
-                            Letter = "B",
-                            No = 1
-                        },
-                        new Seat
-                        {
-                            Letter = "C",
-                            No = 1
+                            Letter = "A",
+                            No = 1,
+                            HallId = 2
                         });
                 }
 
