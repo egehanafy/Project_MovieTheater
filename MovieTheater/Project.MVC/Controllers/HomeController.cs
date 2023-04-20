@@ -30,6 +30,8 @@ namespace Project.MVC.Controllers
         }
         public IActionResult Index()
         {
+            TempData["sepet"] = SessionHelper.GetProductFromJson<Cart>(HttpContext.Session, "sepet");
+
             return View(_movieService.GetAllMovie().ToList());
         }
 
@@ -115,7 +117,6 @@ namespace Project.MVC.Controllers
 
             cartSession.AddItem(cartItem);
             SessionHelper.SetJsonProduct(HttpContext.Session, "sepet", cartSession);
-
 
             return RedirectToAction("Index");
         }

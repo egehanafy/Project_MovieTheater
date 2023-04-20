@@ -28,15 +28,30 @@
                         </li>
                     </ul>
                     <form class="d-flex">
-                        <button class="btn btn-outline-dark" type="submit" style="margin-right:10px" asp-controller="Home" asp-action="Login">
-                            Login
-                        </button>
-                        <button class="btn btn-outline-dark" type="submit" style="margin-right:10px" asp-controller="Home" asp-action="Register">
-                            Register
-                        </button>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <a class="btn btn-outline-dark" style="margin-right:10px" asp-controller="Home" asp-action="Index">
+                                @User.Identity.Name
+                            </a>
+                        }
+                        else
+                        {
+                            <button class="btn btn-outline-dark" type="submit" style="margin-right:10px" asp-controller="Home" asp-action="Login">
+                                Login
+                            </button>
+                            <button class="btn btn-outline-dark" type="submit" style="margin-right:10px" asp-controller="Home" asp-action="Register">
+                                Register
+                            </button>
+                        }
                         <a class="btn btn-outline-dark" asp-action="MyCart" asp-controller="Home" type="submit">
                             <i class="bi-cart-fill me-1"></i>
                             Cart
+                            @if (TempData["sepet"] != null)
+                            {
+                                var sepet = TempData["sepet"] as Project.Common.Cart;
+
+                                <span class="badge bg-dark text-white ms-1 rounded-pill">@sepet._myCart.Count</span>
+                            }
                             <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                         </a>
                     </form>
