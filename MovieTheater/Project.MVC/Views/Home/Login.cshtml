@@ -1,0 +1,38 @@
+﻿@model LoginVM
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6 mx-auto mt-2">
+        @if (TempData["result"] != null)
+        {
+            <div class="alert alert-success">
+                @TempData["result"]
+            </div>
+        }
+        <div class="card">
+            <div class="card-header">
+                <h2>Login</h2>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    <div class="mt-2">
+                        @Html.LabelFor(x=>x.Username)
+                        <span asp-validation-for="Username"></span>
+                        <input type="text" class="form-control" placeholder="Enter username" asp-for="Username" />
+                    </div>
+                    <div class="mt-2">
+                        @Html.LabelFor(x=>x.Password)
+                        <span asp-validation-for="Password"></span>
+                        <input type="password" class="form-control" placeholder="Enter password" asp-for="Password" />
+                    </div>
+                    <button class="btn btn-primary" type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -6,35 +6,58 @@
     decimal? toplamTutar = 0;
 }
 
-<div class="row">
-    <div class="col-md-9">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>UnitPrice</th>
-                    <th>Quantity</th>
-                    <th>SubTotal</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model._myCart.Values)
-                {
-                    toplamTutar += item.SubTotal;
-                    <tr>
-                        <td>@item.MovieTitle</td>
-                        <td>@item.UnitPrice</td>
-                        <td>@item.Quantity</td>
-                        <td>@item.SubTotal</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-
-    </div>
-    <div class="col-md-3">
-        <div class="card">
-            <h1>Toplam Tutar: @toplamTutar ₺</h1>
+<div class="py-2">
+    <div class="container px-4 mt-5">
+        <div class="row">
+            <div class="col-md-9">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Movie</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Edit</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model._myCart.Values)
+                        {
+                            toplamTutar += @item.SubTotal;
+                            <tr>
+                                <td>@item.MovieTitle</td>
+                                <td>@item.Quantity</td>
+                                <td>@item.UnitPrice</td>
+                                <td>
+                                    <div class="col-sm-3">
+                                        <input type="number" name="quantity" id="@item.Id" class="form-control" value="@item.Quantity"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        <label>Have VIP?</label>
+                        <div class="">
+                            <input type="text" class="form-control" placeholder="VIP Code"/>
+                            <button class="btn btn-primary">Apply</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Total Price: @toplamTutar ₺</h5>
+                        <a class="btn btn-primary" asp-action="CompleteCart" asp-controller="Home">Complete Order</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

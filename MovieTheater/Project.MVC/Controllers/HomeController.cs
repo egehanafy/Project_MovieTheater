@@ -19,14 +19,14 @@ namespace Project.MVC.Controllers
     public class HomeController : Controller
     {
         private readonly IMovieService _movieService;
-        private readonly ITicketService _ticketService;
         private readonly UserManager<AppUser> _userManager;
+        private readonly SignInManager<AppUser> _signInManager;
 
-        public HomeController(IMovieService movieService, ITicketService ticketService, UserManager<AppUser> userManager)
+        public HomeController(IMovieService movieService, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
         {
             _movieService = movieService;
-            _ticketService = ticketService;
             _userManager = userManager;
+            _signInManager = signInManager;
         }
         public IActionResult Index()
         {
@@ -107,7 +107,6 @@ namespace Project.MVC.Controllers
 
 
             var movie = _movieService.GetById(id);
-            var ticket = _ticketService.GetById(id);
 
             CartItem cartItem = new CartItem();
             cartItem.Id = movie.Id;
@@ -135,6 +134,49 @@ namespace Project.MVC.Controllers
             {
                 return RedirectToAction("Index");
             }
+        }
+
+        public IActionResult CompleteCart()
+        {
+            Cart car = SessionHelper.GetProductFromJson<Cart>(HttpContext.Session, "sepet");
+            //todo: login islemi yapilmissa istek tamamlanacak
+
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginVM loginVM)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByNameAsync(loginVM.Username);
+                if (user != null)
+                {
+                    var result = await _signInManager.PasswordSignInAsync(user, loginVM.Password, false, false);
+                    if (result.Succeeded)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        return View();
+                    }
+                }
+                else
+                {
+                    return View(loginVM);
+                }
+            }
+            else
+            {
+
+            }
+            return View();
         }
 
         public async Task<IActionResult> Confirmation(int id, string registerCode)

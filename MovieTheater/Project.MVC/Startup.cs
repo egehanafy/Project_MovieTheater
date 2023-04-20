@@ -45,12 +45,23 @@ namespace Project.MVC
 
             //Identity Service
             //Token olusturmak istedigimizde bu metodu dahil etmeliyiz.
-            services.AddIdentity<AppUser, AppUserRole>().AddEntityFrameworkStores<ProjectContext>().AddDefaultTokenProviders();
+            services.AddIdentity<AppUser, AppUserRole>().AddEntityFrameworkStores<ProjectContext>().AddDefaultTokenProviders(); //token olusturmak istedigimizde bu metodu dahil etmeliyiz.
+
+            services.ConfigureApplicationCookie(x =>
+            {
+                x.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Home/Login");
+                x.Cookie = new Microsoft.AspNetCore.Http.CookieBuilder
+                {
+                    Name = "Login_cookie"
+                };
+                x.SlidingExpiration = true;
+                x.ExpireTimeSpan = TimeSpan.FromMinutes(10);
+            });
 
             services.AddSession(x =>
             {
                 x.Cookie.Name = "movie_cart_session";
-                x.IdleTimeout = TimeSpan.FromMinutes(1);
+                x.IdleTimeout = TimeSpan.FromMinutes(10);
             });
         }
 
@@ -71,6 +82,10 @@ namespace Project.MVC
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseAuthentication();
+
+            app.UseAuthorization();
 
             app.UseSession();
 
