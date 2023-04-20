@@ -24,7 +24,7 @@ namespace Project.Entity.Entity
         //Relational Properties
         public virtual Genre Genre { get; set; }
         public virtual Hall Hall { get; set; }
-        public virtual List<Ticket> Tickets { get; set; }
+        public virtual List<TicketDetail> TicketDetails { get; set; }
 
     }
 }

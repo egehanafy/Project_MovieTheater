@@ -8,9 +8,15 @@ namespace Project.Entity.Entity
 {
     public class Ticket:BaseEntity
     {
-        public int? MovieId { get; set; }
+        public Ticket()
+        {
+            TicketDetails = new List<TicketDetail>();
+        }
+
+        public int AppUserId { get; set; }
 
         //Relational Properties
-        public virtual Movie Movie { get; set; }
+        public virtual AppUser AppUser { get; set; }
+        public virtual List<TicketDetail> TicketDetails { get; set; }
     }
 }

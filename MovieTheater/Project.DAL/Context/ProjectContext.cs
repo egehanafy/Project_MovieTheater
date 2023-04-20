@@ -15,22 +15,26 @@ namespace Project.DAL.Context
         {
             
         }
-
-        public DbSet<Movie> Movies { get; set; }
-        public DbSet<Genre> Genres { get; set; }
-        public DbSet<Ticket> Tickets { get; set; }
-        public DbSet<Hall> Halls { get; set; }
-        public DbSet<Seat> Seats { get; set; }
-
-
-        //FakeData
-
+        
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            
+            builder.Entity<TicketDetail>().HasKey(x => new
+            {
+                x.MovieId,
+                x.TicketId
+            });
 
             base.OnModelCreating(builder);
 
         }
+
+        public DbSet<Movie> Movies { get; set; }
+        public DbSet<Genre> Genres { get; set; }
+        public DbSet<Ticket> Tickets { get; set; }
+        public DbSet<TicketDetail> TicketDetails { get; set; }
+        public DbSet<Hall> Halls { get; set; }
+        public DbSet<Seat> Seats { get; set; }
 
     }
 }
