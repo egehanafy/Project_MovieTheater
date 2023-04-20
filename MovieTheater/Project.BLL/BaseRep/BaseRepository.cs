@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Project.BLL.Abstract;
+using Project.BLL.IntAbstract;
 using Project.DAL.Context;
 using Project.Entity.Base;
 using System;

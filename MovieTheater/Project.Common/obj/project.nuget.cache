@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "jKls8njkUhk3skehQVvTXlHZotKrP3+h5MlRwm+iGxfpQ3Mi9dJbXvOZKciX9BTBBeX1I7mOTF8dxe/ULxFhoQ==",
+  "dgSpecHash": "xwgpUOM/3/p+auSzujVcj7MkZE7+HLvf6cVivbhLxi7iTQ5D2RSQo5OtlAdIDvPHrCMvOi3JifSrGOvqlrljeA==",
   "success": true,
   "projectFilePath": "D:\\YZL3162\\Projelerim\\MovieTheater\\MovieTheater\\Project.Common\\Project.Common.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\socia\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
+    "C:\\Users\\socia\\.nuget\\packages\\microsoft.extensions.primitives\\2.2.0\\microsoft.extensions.primitives.2.2.0.nupkg.sha512",
+    "C:\\Users\\socia\\.nuget\\packages\\system.memory\\4.5.1\\system.memory.4.5.1.nupkg.sha512",
+    "C:\\Users\\socia\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.1\\system.runtime.compilerservices.unsafe.4.5.1.nupkg.sha512"
+  ],
   "logs": []
 }

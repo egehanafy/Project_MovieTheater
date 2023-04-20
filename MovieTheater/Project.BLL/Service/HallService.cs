@@ -1,4 +1,4 @@
-﻿using Project.BLL.Abstract;
+﻿using Project.BLL.IntAbstract;
 using Project.BLL.IntService;
 using Project.Entity.Entity;
 using System;

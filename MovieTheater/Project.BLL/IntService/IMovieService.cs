@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Project.BLL.AbstractService
+namespace Project.BLL.IntService
 {
     public interface IMovieService
     {

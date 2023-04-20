@@ -33,5 +33,10 @@ namespace Project.MVC.Utils
         }
 
 
+        public static void RemoveSession(this ISession session, string key)
+        {
+            session.Remove(key);
+        }
+
     }
 }

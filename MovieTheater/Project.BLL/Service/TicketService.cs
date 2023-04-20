@@ -1,5 +1,5 @@
-﻿using Project.BLL.Abstract;
-using Project.BLL.AbstractService;
+﻿using Project.BLL.IntAbstract;
+using Project.BLL.IntService;
 using Project.Entity.Entity;
 using System;
 using System.Collections.Generic;
@@ -28,39 +28,10 @@ namespace Project.BLL.Service
             }
         }
 
-        public string DeleteTicket(Ticket ticket)
-        {
-            try
-            {
-                return _ticketRepo.Delete(ticket);
-            }
-            catch (Exception ex)
-            {
-                return ex.Message;
-            }
-        }
-
         public IEnumerable<Ticket> GetAllTickets()
         {
             return _ticketRepo.GetAll();
         }
 
-        public Ticket GetById(int id)
-        {
-            return _ticketRepo.GetById(id);
-        }
-
-        public string UpdateTicket(Ticket ticket)
-        {
-            try
-            {
-                ticket.Status = Entity.Enum.Status.Updated;
-                return _ticketRepo.Update(ticket);
-            }
-            catch (Exception ex)
-            {
-                return ex.Message;
-            }
-        }
     }
 }

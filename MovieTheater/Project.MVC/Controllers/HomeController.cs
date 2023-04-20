@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Project.BLL.AbstractService;
+using Project.BLL.IntService;
 using Project.BLL.Service;
 using Project.Common;
 using Project.Entity.Entity;
@@ -19,12 +19,16 @@ namespace Project.MVC.Controllers
     public class HomeController : Controller
     {
         private readonly IMovieService _movieService;
+        private readonly ITicketService _ticketService;
+        private readonly ITicketDetailService _ticketDetailService;
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
 
-        public HomeController(IMovieService movieService, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+        public HomeController(IMovieService movieService, ITicketService ticketService, ITicketDetailService ticketDetailService, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
         {
             _movieService = movieService;
+            _ticketService = ticketService;
+            _ticketDetailService = ticketDetailService;
             _userManager = userManager;
             _signInManager = signInManager;
         }
@@ -137,12 +141,41 @@ namespace Project.MVC.Controllers
             }
         }
 
-        public IActionResult CompleteCart()
+        public async Task<IActionResult> CompleteCart()
         {
-            Cart car = SessionHelper.GetProductFromJson<Cart>(HttpContext.Session, "sepet");
-            //todo: login islemi yapilmissa istek tamamlanacak
+            Cart cart = SessionHelper.GetProductFromJson<Cart>(HttpContext.Session, "sepet");
 
-            return RedirectToAction("Index");
+            if (User.Identity.IsAuthenticated)
+            {
+                Ticket ticket = new Ticket();
+                var user = await _userManager.GetUserAsync(User);
+                ticket.AppUser = user;
+                Random rnd = new Random();
+                ticket.TicketNo = rnd.Next(1, 1000000).ToString();
+                TicketDetail ticketDetail = new TicketDetail();
+                foreach (var item in cart._myCart)
+                {
+                    Movie movie = _movieService.GetById(item.Value.Id);
+                    movie.Title = item.Value.MovieTitle;
+                    movie.UnitPrice = item.Value.UnitPrice;
+                    ticketDetail.Movie = movie;
+                    ticketDetail.Quantity = item.Value.Quantity;
+                    ticketDetail.UnitPrice = item.Value.UnitPrice;
+                }
+                ticket.TicketDetails.Add(ticketDetail);
+                _ticketService.CreateTicket(ticket);
+                _ticketDetailService.CreateTicketDetail(ticketDetail);
+
+                MailSender.SendEmail(user.Email, "Sinema Bileti", $"{ticket.TicketNo} numarali biletiniz olusturuldu.");
+
+                SessionHelper.RemoveSession(HttpContext.Session, "sepet");
+
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
         }
 
         public IActionResult Login()

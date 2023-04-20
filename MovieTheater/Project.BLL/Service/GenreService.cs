@@ -1,5 +1,5 @@
-﻿using Project.BLL.Abstract;
-using Project.BLL.AbstractService;
+﻿using Project.BLL.IntAbstract;
+using Project.BLL.IntService;
 using Project.Entity.Entity;
 using System;
 using System.Collections.Generic;

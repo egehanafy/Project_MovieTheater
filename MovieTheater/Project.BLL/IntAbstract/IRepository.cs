@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Project.BLL.Abstract
+namespace Project.BLL.IntAbstract
 {
     public interface IRepository<T> where T : BaseEntity
     {

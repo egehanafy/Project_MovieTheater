@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Project.BLL.AbstractService;
+using Project.BLL.IntAbstract;
+using Project.BLL.IntService;
 using Project.BLL.Service;
 using Project.Entity.Entity;
 using Project.MVC.Areas.Dashboard.ViewModels;
