@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.Extensions.DependencyInjection;
 using Project.DAL.Context;
 using Project.Entity.Entity;
+using Project.Entity.Enum;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -71,11 +72,11 @@ namespace Project.IOC.Seed
                     context.Halls.AddRange(
                         new Hall
                         {
-                            Name = "Salon 1"
+                            No = "Salon 1"
                         },
                         new Hall
                         {
-                            Name = "Salon 2"
+                            No = "Salon 2"
                         });
                     context.SaveChanges();
                 }
@@ -95,6 +96,30 @@ namespace Project.IOC.Seed
                             Letter = "A",
                             No = 1,
                             HallId = 2
+                        });
+                    context.SaveChanges();
+                }
+
+                //Employee
+                if (!context.Employees.Any())
+                {
+                    context.Employees.AddRange(
+                        new Employee
+                        {
+                            Name = "Ege",
+                            Surname = "Afy",
+                            Title = Entity.Enum.Title.BoxOfficeClerk
+                        },
+                        new Employee
+                        {
+                            Name = "Efe",
+                            Surname = "Afy",
+                            Title = Entity.Enum.Title.CinemaDepartment
+                        }, new Employee
+                        {
+                            Name = "Egehan",
+                            Surname = "Afy",
+                            Title = Entity.Enum.Title.Manager
                         });
                     context.SaveChanges();
                 }

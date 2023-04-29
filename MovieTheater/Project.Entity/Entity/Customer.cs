@@ -1,18 +1,18 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Project.Entity.Base;
 using Project.Entity.Enum;
 using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Project.Entity.Entity
 {
-    public class AppUser:IdentityUser<int>
+    public class Customer:BaseEntity
     {
-        public AppUser()
+        public Customer()
         {
             Qualification = Qualification.None;
         }
         public DateTime BirthDate { get; set; }
-        public string Address { get; set; }
         public Qualification Qualification { get; set; }
 
         //Relational Properties

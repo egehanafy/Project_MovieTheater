@@ -21,6 +21,8 @@ namespace Project.IOC.Container
             services.AddScoped<ITicketDetailService, TicketDetailService>();
             services.AddScoped<IHallService, HallService>();
             services.AddScoped<ISeatService, SeatService>();
+            services.AddScoped<ICustomerService, CustomerService>();
+            services.AddScoped<IEmployeeService, EmployeeService>();
         }
     }
 }

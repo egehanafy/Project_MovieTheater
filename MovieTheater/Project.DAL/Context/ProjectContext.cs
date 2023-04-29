@@ -35,6 +35,7 @@ namespace Project.DAL.Context
         public DbSet<TicketDetail> TicketDetails { get; set; }
         public DbSet<Hall> Halls { get; set; }
         public DbSet<Seat> Seats { get; set; }
-
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Employee> Employees { get; set; }
     }
 }

@@ -13,11 +13,13 @@ namespace Project.Entity.Entity
             TicketDetails = new List<TicketDetail>();
         }
 
-        public int AppUserId { get; set; }
+        public int? AppUserId { get; set; }
+        public int? CustomerId { get; set; }
         public string TicketNo { get; set; }
 
         //Relational Properties
         public virtual AppUser AppUser { get; set; }
+        public virtual Customer Customer { get; set; }
         public virtual List<TicketDetail> TicketDetails { get; set; }
 
     }

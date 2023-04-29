@@ -7,7 +7,7 @@ namespace Project.Entity.Entity
 {
     public class Hall:BaseEntity
     {
-        public string Name { get; set; }
+        public string No { get; set; }
 
         //Relational Properties
         public virtual List<Movie> Movies { get; set; }
