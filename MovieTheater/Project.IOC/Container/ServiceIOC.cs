@@ -6,6 +6,9 @@ using Project.BLL.Service;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Project.IOC.Container
 {
@@ -23,6 +26,29 @@ namespace Project.IOC.Container
             services.AddScoped<ISeatService, SeatService>();
             services.AddScoped<ICustomerService, CustomerService>();
             services.AddScoped<IEmployeeService, EmployeeService>();
+
+            //Jwt Service
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                    {
+                        //ValidateIssuer
+                        ValidateIssuer = true,
+                        //ValidateAudience
+                        ValidateAudience = true,
+                        //ValidateLifeTime
+                        ValidateLifetime = true,
+                        //ValidateIssuerSignInKey
+                        ValidateIssuerSigningKey = true,
+                        //ValidIssuer
+                        ValidIssuer = "https://localhost:44301",
+                        //ValidaAuidence
+                        ValidAudience = "https://localhost:44301",
+                        //IssuerSignInKey
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("b51487ad3be4760cada8cfb4523451c2459f8c398d98ee3657ca4729797195d7"))
+                    };
+                });
         }
     }
 }

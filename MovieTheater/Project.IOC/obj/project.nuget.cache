@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "GXwgxr4NL9eo3eTSK6V9oh3unHFvG0mP7yPnKYjgFYUh8697hp1Ti/tcj0n5df1lyBjZ9fvVJG6UUaT2FAeoZg==",
+  "dgSpecHash": "iZfIOgp+pcoXVUCUK2Z94eYFckERvHwZofTMeRQ2QDofSpV8IY52q55WL9PpQ9oazg8GHzkhS/zm31tDvXwhkw==",
   "success": true,
   "projectFilePath": "D:\\YZL3162\\Projelerim\\MovieTheater\\MovieTheater\\Project.IOC\\Project.IOC.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\socia\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.32\\microsoft.aspnetcore.authentication.jwtbearer.3.1.32.nupkg.sha512",
     "C:\\Users\\socia\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.32\\microsoft.aspnetcore.cryptography.internal.3.1.32.nupkg.sha512",
     "C:\\Users\\socia\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.32\\microsoft.aspnetcore.cryptography.keyderivation.3.1.32.nupkg.sha512",
     "C:\\Users\\socia\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
