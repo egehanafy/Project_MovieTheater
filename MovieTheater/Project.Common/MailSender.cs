@@ -21,7 +21,7 @@ namespace Project.Common
 
             //SmtpClient
             SmtpClient smtpClient = new SmtpClient();
-            smtpClient.Credentials = new NetworkCredential("egehan.test@hotmail.com", "egehantesT123");
+            smtpClient.Credentials = new NetworkCredential("egehan.test@hotmail.com", "Yzl3162--");
             smtpClient.Port = 587;
             smtpClient.Host = "smtp-mail.outlook.com";
             smtpClient.EnableSsl = true;

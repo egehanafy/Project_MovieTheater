@@ -43,9 +43,7 @@ namespace Project.MVC
             //Service
             ServiceIOC.ServiceConfigure(services);
 
-            //Identity Service
-            //Token olusturmak istedigimizde bu metodu dahil etmeliyiz.
-            services.AddIdentity<AppUser, AppUserRole>().AddEntityFrameworkStores<ProjectContext>().AddDefaultTokenProviders(); //token olusturmak istedigimizde bu metodu dahil etmeliyiz.
+            
 
             services.ConfigureApplicationCookie(x =>
             {

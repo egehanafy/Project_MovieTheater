@@ -32,6 +32,7 @@
       "Project.API/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Authentication.JwtBearer": "3.1.32",
+          "Project.Common": "1.0.0",
           "Project.DAL": "1.0.0",
           "Project.Entity": "1.0.0",
           "Project.IOC": "1.0.0",
@@ -1491,6 +1492,19 @@
         },
         "compile": {
           "Project.BLL.dll": {}
+        }
+      },
+      "Project.Common/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "3.1.32",
+          "Microsoft.AspNetCore.Http.Features": "2.2.0",
+          "Project.Entity": "1.0.0"
+        },
+        "runtime": {
+          "Project.Common.dll": {}
+        },
+        "compile": {
+          "Project.Common.dll": {}
         }
       },
       "Project.DAL/1.0.0": {
@@ -3879,6 +3893,11 @@
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
     },
     "Project.BLL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Project.Common/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

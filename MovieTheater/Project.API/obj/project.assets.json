@@ -1853,6 +1853,21 @@
           "bin/placeholder/Project.BLL.dll": {}
         }
       },
+      "Project.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "3.1.32",
+          "Microsoft.AspNetCore.Http.Features": "2.2.0",
+          "Project.Entity": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Project.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Project.Common.dll": {}
+        }
+      },
       "Project.DAL/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -6225,6 +6240,11 @@
       "path": "../Project.BLL/Project.BLL.csproj",
       "msbuildProject": "../Project.BLL/Project.BLL.csproj"
     },
+    "Project.Common/1.0.0": {
+      "type": "project",
+      "path": "../Project.Common/Project.Common.csproj",
+      "msbuildProject": "../Project.Common/Project.Common.csproj"
+    },
     "Project.DAL/1.0.0": {
       "type": "project",
       "path": "../Project.DAL/Project.DAL.csproj",
@@ -6244,6 +6264,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 3.1.32",
+      "Project.Common >= 1.0.0",
       "Project.DAL >= 1.0.0",
       "Project.Entity >= 1.0.0",
       "Project.IOC >= 1.0.0"
@@ -6281,6 +6302,9 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
+            "D:\\YZL3162\\Projelerim\\MovieTheater\\MovieTheater\\Project.Common\\Project.Common.csproj": {
+              "projectPath": "D:\\YZL3162\\Projelerim\\MovieTheater\\MovieTheater\\Project.Common\\Project.Common.csproj"
+            },
             "D:\\YZL3162\\Projelerim\\MovieTheater\\MovieTheater\\Project.DAL\\Project.DAL.csproj": {
               "projectPath": "D:\\YZL3162\\Projelerim\\MovieTheater\\MovieTheater\\Project.DAL\\Project.DAL.csproj"
             },

@@ -28,8 +28,6 @@ namespace Project.Common
             {
                 return "1";
             };
-
-            return newFileName;
         }
     }
 }

@@ -97,7 +97,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\YZL3162\\Projelerim\\MovieTheater\\MovieTheater\\Project.Entity\\Project.Entity.csproj": {
+                "projectPath": "D:\\YZL3162\\Projelerim\\MovieTheater\\MovieTheater\\Project.Entity\\Project.Entity.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -110,6 +114,10 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[3.1.32, )"
+            },
             "Microsoft.AspNetCore.Http.Features": {
               "target": "Package",
               "version": "[2.2.0, )"

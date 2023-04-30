@@ -8,3 +8,6 @@ D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.Common\obj\Debug\netcore
 D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.Common\obj\Debug\netcoreapp3.1\Project.Common.csproj.CoreCompileInputs.cache
 D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.Common\obj\Debug\netcoreapp3.1\Project.Common.dll
 D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.Common\obj\Debug\netcoreapp3.1\Project.Common.pdb
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.Common\bin\Debug\netcoreapp3.1\Project.Entity.dll
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.Common\bin\Debug\netcoreapp3.1\Project.Entity.pdb
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.Common\obj\Debug\netcoreapp3.1\Project.Common.csproj.CopyComplete

@@ -76,3 +76,5 @@ D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.API\obj\Debug\netcoreapp
 D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.API\obj\Debug\netcoreapp3.1\Project.API.pdb
 D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.API\obj\Debug\netcoreapp3.1\Project.API.genruntimeconfig.cache
 D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.API\bin\Debug\netcoreapp3.1\Project.Common.dll
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.API\bin\Debug\netcoreapp3.1\Project.Common.pdb

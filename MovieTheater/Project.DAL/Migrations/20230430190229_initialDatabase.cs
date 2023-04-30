@@ -43,11 +43,59 @@ namespace Project.DAL.Migrations
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
                     BirthDate = table.Column<DateTime>(nullable: false),
-                    Address = table.Column<string>(nullable: true)
+                    Address = table.Column<string>(nullable: true),
+                    Qualification = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Customers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    MasterId = table.Column<Guid>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: false),
+                    CreatedComputerName = table.Column<string>(nullable: true),
+                    CreatedIpAddress = table.Column<string>(nullable: true),
+                    UpdatedDate = table.Column<DateTime>(nullable: false),
+                    UpdatedComputerName = table.Column<string>(nullable: true),
+                    UpdatedIpAddress = table.Column<string>(nullable: true),
+                    IsActive = table.Column<bool>(nullable: false),
+                    Status = table.Column<int>(nullable: false),
+                    BirthDate = table.Column<DateTime>(nullable: false),
+                    Qualification = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Customers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Employees",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    MasterId = table.Column<Guid>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: false),
+                    CreatedComputerName = table.Column<string>(nullable: true),
+                    CreatedIpAddress = table.Column<string>(nullable: true),
+                    UpdatedDate = table.Column<DateTime>(nullable: false),
+                    UpdatedComputerName = table.Column<string>(nullable: true),
+                    UpdatedIpAddress = table.Column<string>(nullable: true),
+                    IsActive = table.Column<bool>(nullable: false),
+                    Status = table.Column<int>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
+                    Surname = table.Column<string>(nullable: true),
+                    Title = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Employees", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -87,7 +135,7 @@ namespace Project.DAL.Migrations
                     UpdatedIpAddress = table.Column<string>(nullable: true),
                     IsActive = table.Column<bool>(nullable: false),
                     Status = table.Column<int>(nullable: false),
-                    Name = table.Column<string>(nullable: true)
+                    No = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -215,7 +263,9 @@ namespace Project.DAL.Migrations
                     UpdatedIpAddress = table.Column<string>(nullable: true),
                     IsActive = table.Column<bool>(nullable: false),
                     Status = table.Column<int>(nullable: false),
-                    AppUserId = table.Column<int>(nullable: false)
+                    AppUserId = table.Column<int>(nullable: true),
+                    CustomerId = table.Column<int>(nullable: true),
+                    TicketNo = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -225,7 +275,13 @@ namespace Project.DAL.Migrations
                         column: x => x.AppUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Tickets_Customers_CustomerId",
+                        column: x => x.CustomerId,
+                        principalTable: "Customers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -306,7 +362,17 @@ namespace Project.DAL.Migrations
                 {
                     MovieId = table.Column<int>(nullable: false),
                     TicketId = table.Column<int>(nullable: false),
-                    UnitPrice = table.Column<decimal>(nullable: false),
+                    Id = table.Column<int>(nullable: false),
+                    MasterId = table.Column<Guid>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: false),
+                    CreatedComputerName = table.Column<string>(nullable: true),
+                    CreatedIpAddress = table.Column<string>(nullable: true),
+                    UpdatedDate = table.Column<DateTime>(nullable: false),
+                    UpdatedComputerName = table.Column<string>(nullable: true),
+                    UpdatedIpAddress = table.Column<string>(nullable: true),
+                    IsActive = table.Column<bool>(nullable: false),
+                    Status = table.Column<int>(nullable: false),
+                    UnitPrice = table.Column<decimal>(nullable: true),
                     Quantity = table.Column<short>(nullable: false)
                 },
                 constraints: table =>
@@ -389,6 +455,11 @@ namespace Project.DAL.Migrations
                 name: "IX_Tickets_AppUserId",
                 table: "Tickets",
                 column: "AppUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Tickets_CustomerId",
+                table: "Tickets",
+                column: "CustomerId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -407,6 +478,9 @@ namespace Project.DAL.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "Employees");
 
             migrationBuilder.DropTable(
                 name: "Seats");
@@ -431,6 +505,9 @@ namespace Project.DAL.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Customers");
         }
     }
 }

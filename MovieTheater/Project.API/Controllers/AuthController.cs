@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Project.API.DTO;
+using Project.Common;
 using Project.Entity.Entity;
 using System.Threading.Tasks;
 
@@ -39,7 +40,7 @@ namespace Project.API.Controllers
                 }
 
 
-                var token = "bos";//GenerateJwtToken(user);
+                var token = JwtProvider.GenerateJwtToken(user);
 
                 return Ok(token);
             }

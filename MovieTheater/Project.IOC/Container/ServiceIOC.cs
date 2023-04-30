@@ -9,6 +9,9 @@ using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Identity;
+using Project.DAL.Context;
+using Project.Entity.Entity;
 
 namespace Project.IOC.Container
 {
@@ -26,6 +29,10 @@ namespace Project.IOC.Container
             services.AddScoped<ISeatService, SeatService>();
             services.AddScoped<ICustomerService, CustomerService>();
             services.AddScoped<IEmployeeService, EmployeeService>();
+
+            //Identity Service
+            //Token olusturmak istedigimizde bu metodu dahil etmeliyiz.
+            services.AddIdentity<AppUser, AppUserRole>().AddEntityFrameworkStores<ProjectContext>().AddDefaultTokenProviders();
 
             //Jwt Service
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
