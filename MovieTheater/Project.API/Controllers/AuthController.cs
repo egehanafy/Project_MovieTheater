@@ -49,5 +49,11 @@ namespace Project.API.Controllers
                 return BadRequest();
             }
         }
+
+        [HttpPost]
+        public string Testing([FromBody]string test)
+        {
+            return "post test basarili";
+        }
     }
 }
