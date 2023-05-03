@@ -1,0 +1,45 @@
+﻿@model Project.Entity.Entity.Movie
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="card mb-4 mt-4">
+    <div class="card-header">
+        <h3>New Movie</h3>
+    </div>
+    <div class="card-body">
+        <form asp-action="Update" asp-controller="Movie" method="post" enctype="multipart/form-data">
+            <div class="mb-2">
+                <label>Title</label>
+                <input type="text" class="form-control" asp-for="Title" />
+            </div>
+
+            <div class="mb-2">
+                <label>Description</label>
+                <textarea class="form-control" cols="5" rows="10" asp-for="Description"></textarea>
+            </div>
+
+            <div class="mb-2">
+                <label>Select Genre</label>
+                @*<select class="form-control custom-select" asp-for="Genre.Id">
+                <option>Select Genre</option>
+                <option>Korku</option>
+                <option>Bilim Kurgu</option>
+                </select>*@
+
+                <select class="form-control custom-select" asp-items="@ViewBag.Genres" asp-for="Genre.Id">
+                    <option selected="" disable>Select Genre</option>
+                </select>
+            </div>
+
+            <div class="mb-2">
+                <label>Image</label>
+                <input type="file" class="form-control" name="ImagePath" />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+

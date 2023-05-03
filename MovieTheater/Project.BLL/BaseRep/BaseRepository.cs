@@ -39,6 +39,7 @@ namespace Project.BLL.Concrete
             try
             {
                 var deleted = _entities.Find(entity.Id);
+                deleted.IsActive = false;
                 deleted.Status = Entity.Enum.Status.Deleted;
                 _db.SaveChanges();
                 return "veri silindi";
@@ -68,6 +69,7 @@ namespace Project.BLL.Concrete
                 switch (entity.Status)
                 {
                     case Entity.Enum.Status.Updated:
+                        entity.UpdatedDate = DateTime.Now;
                         entity.Status = Entity.Enum.Status.Updated;
                         _db.Entry(entity).State = EntityState.Modified;
                         _db.SaveChanges();

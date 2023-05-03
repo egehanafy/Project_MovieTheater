@@ -6,7 +6,7 @@
 
 <div class="card mb-4 mt-4">
     <div class="card-header">
-        <h3>New Genre</h3>
+        <h3>New Movie</h3>
     </div>
     <div class="card-body">
         <form asp-action="Create" asp-controller="Movie" method="post" enctype="multipart/form-data">
@@ -29,12 +29,12 @@
                 </select>*@
 
                 <select class="form-control custom-select" asp-items="@ViewBag.Genres" asp-for="Genre.Id">
-                    <option selected="" disable>Please Select Category</option>
+                    <option selected="" disable>Select Genre</option>
                 </select>
             </div>
 
             <div class="mb-2">
-                <label>Title</label>
+                <label>Image</label>
                 <input type="file" class="form-control" name="ImagePath" />
             </div>
 

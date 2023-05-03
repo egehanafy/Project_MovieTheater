@@ -301,12 +301,12 @@ namespace Project.DAL.Migrations
                     Status = table.Column<int>(nullable: false),
                     Title = table.Column<string>(nullable: false),
                     Description = table.Column<string>(maxLength: 1000, nullable: true),
-                    Duration = table.Column<TimeSpan>(nullable: false),
-                    Year = table.Column<string>(nullable: true),
-                    Rating = table.Column<double>(nullable: false),
+                    Duration = table.Column<TimeSpan>(nullable: true),
+                    Year = table.Column<DateTime>(nullable: true),
+                    Rating = table.Column<double>(nullable: true),
                     ImagePath = table.Column<string>(nullable: true),
-                    UnitPrice = table.Column<decimal>(nullable: false),
-                    GenreId = table.Column<int>(nullable: true),
+                    UnitPrice = table.Column<decimal>(nullable: true),
+                    GenreId = table.Column<int>(nullable: false),
                     HallId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -317,7 +317,7 @@ namespace Project.DAL.Migrations
                         column: x => x.GenreId,
                         principalTable: "Genres",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Movies_Halls_HallId",
                         column: x => x.HallId,

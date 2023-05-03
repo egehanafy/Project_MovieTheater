@@ -45,9 +45,8 @@ namespace Project.IOC.Seed
                         {
                             Title = "Star Wars",
                             Description = "Yildiz Savaslari, George Lucsa tarafindan yaratilmis, oncelikle fimleriyle taninmis, sonraki yillarda cizgi roman, video oyunlari, televizyon yapimlari vb. dallarda ununu arttirmis kurgusal bir evren ve markadir.",
-                            Duration = TimeSpan.FromHours(2.01),
-                            Year = "1977",
-                            Rating = 8.8D,
+                            //Duration = TimeSpan.FromHours(2.01),
+                            //Rating = 8.8D,
                             ImagePath = "https://t1.gstatic.com/licensed-image?q=tbn:ANd9GcSFqs2AfGte3gdgvgNmHogNiyN3r9VS3x-sAd2PDYe5RuvfMeBz5DdQSR-dcGSW3DZF",
                             UnitPrice = 120,
                             GenreId = 2
@@ -56,9 +55,8 @@ namespace Project.IOC.Seed
                         {
                             Title = "Exorcism",
                             Description = "Seytan, William Friedkin'in yonettigi 1973 tarihli bir ABD yapimi filmdir. Tum dunyada elestiriler alan bu filmin       setinde de kadronun basina ilginc seyler geldi.",
-                            Duration = TimeSpan.FromHours(2.12),
-                            Year = "1973",
-                            Rating = 8.1D,
+                            //Duration = TimeSpan.FromHours(2.12),
+                            //Rating = 8.1D,
                             ImagePath = "https://upload.wikimedia.org/wikipedia/tr/5/59/Exorcistmovie.jpg",
                             UnitPrice = 100,
                             GenreId = 1

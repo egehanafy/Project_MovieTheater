@@ -77,5 +77,63 @@ namespace Project.MVC.Areas.Dashboard.Controllers
             
             return RedirectToAction("Index");
         }
+        public IActionResult Delete(int id)
+        {
+            var deleted = _movieService.GetById(id);
+
+            if (deleted != null)
+            {
+                TempData["result"] = _movieService.DeleteMovie(deleted);
+                return RedirectToAction("Index");
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Update(int id)
+        {
+            //SelectListItem => MVC tarafinda bize teslim edilen SelectListItem View icerisinde olusturmus oldugumuz <select></select> etiketi icerisinde selectlist olusturmamizi saglayan bir siniftir.
+            ViewBag.Genres = _genreService.GetAllGenres().Select(x => new SelectListItem()
+            {
+                Text = x.GenreName,
+                Value = x.Id.ToString()
+            });
+            var updated = _movieService.GetById(id);
+            return View(updated);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Update(Movie movie, MovieVM movieVM, IFormFile imagePath)
+        {
+            string path = "";
+
+            var imageResult = ImageUploader.ImageChangeName(imagePath.FileName);
+
+            if (imageResult != "1")
+            {
+                path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\image\\movie", imageResult);
+
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await imagePath.CopyToAsync(stream);
+                }
+
+                movieVM.ImagePath = imageResult;
+            }
+            else
+            {
+                TempData["result"] = "Uyumsuz format";
+
+                return View();
+            }
+
+                movie.Title = movieVM.Title;
+                movie.Description = movieVM.Description;
+                movie.GenreId = movieVM.Genre.Id;
+                movie.ImagePath = movieVM.ImagePath;
+
+            TempData["result"] = _movieService.UpdateMovie(movie);
+            return RedirectToAction("Index");
+        }
     }
 }

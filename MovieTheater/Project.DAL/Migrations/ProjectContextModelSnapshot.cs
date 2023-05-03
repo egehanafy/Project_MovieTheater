@@ -423,10 +423,10 @@ namespace Project.DAL.Migrations
                         .HasColumnType("nvarchar(1000)")
                         .HasMaxLength(1000);
 
-                    b.Property<TimeSpan>("Duration")
+                    b.Property<TimeSpan?>("Duration")
                         .HasColumnType("time");
 
-                    b.Property<int?>("GenreId")
+                    b.Property<int>("GenreId")
                         .HasColumnType("int");
 
                     b.Property<int?>("HallId")
@@ -441,7 +441,7 @@ namespace Project.DAL.Migrations
                     b.Property<Guid>("MasterId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<double>("Rating")
+                    b.Property<double?>("Rating")
                         .HasColumnType("float");
 
                     b.Property<int>("Status")
@@ -452,7 +452,6 @@ namespace Project.DAL.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal?>("UnitPrice")
-                        .IsRequired()
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("UpdatedComputerName")
@@ -464,8 +463,8 @@ namespace Project.DAL.Migrations
                     b.Property<string>("UpdatedIpAddress")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Year")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime?>("Year")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -684,7 +683,9 @@ namespace Project.DAL.Migrations
                 {
                     b.HasOne("Project.Entity.Entity.Genre", "Genre")
                         .WithMany("Movies")
-                        .HasForeignKey("GenreId");
+                        .HasForeignKey("GenreId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Project.Entity.Entity.Hall", "Hall")
                         .WithMany("Movies")
