@@ -180,3 +180,6 @@ D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.MVC\bin\Debug\netcoreapp
 D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.MVC\obj\Debug\netcoreapp3.1\Razor\Views\Home\Login.cshtml.g.cs
 D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.MVC\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.MVC\obj\Debug\netcoreapp3.1\Razor\Areas\Dashboard\Views\Movie\Update.cshtml.g.cs
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.MVC\obj\Debug\netcoreapp3.1\Razor\Areas\Dashboard\Views\Employee\Create.cshtml.g.cs
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.MVC\obj\Debug\netcoreapp3.1\Razor\Areas\Dashboard\Views\Employee\Index.cshtml.g.cs
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.MVC\obj\Debug\netcoreapp3.1\Razor\Areas\Dashboard\Views\Employee\Update.cshtml.g.cs

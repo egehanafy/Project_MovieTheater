@@ -122,13 +122,13 @@ namespace Project.MVC.Controllers
             cartSession.AddItem(cartItem);
             SessionHelper.SetJsonProduct(HttpContext.Session, "sepet", cartSession);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("MyCart");
         }
 
         public IActionResult MyCart()
         {
 
-            //todo: View olusuturulacak
+            
 
             if (SessionHelper.GetProductFromJson<Cart>(HttpContext.Session, "sepet") != null)
             {
