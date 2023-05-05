@@ -29,6 +29,7 @@ namespace Project.IOC.Container
             services.AddScoped<ISeatService, SeatService>();
             services.AddScoped<ICustomerService, CustomerService>();
             services.AddScoped<IEmployeeService, EmployeeService>();
+            services.AddScoped<IShowTimeService, ShowTimeService>();
 
             //Identity Service
             //Token olusturmak istedigimizde bu metodu dahil etmeliyiz.

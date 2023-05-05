@@ -1,0 +1,39 @@
+﻿@model ShowTimeVM
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="card mb-4 mt-4">
+    <div class="card-header">
+        <h3>New Showtime</h3>
+    </div>
+    <div class="card-body">
+        <form asp-action="Create" asp-controller="ShowTime" method="post">
+            <div class="mb-2">
+                <label>Showtime</label>
+                <input type="text" class="form-control" name="ShowTime" />
+            </div>
+
+            <div class="mb-2">
+                <label>Movie</label>
+                <input type="text" class="form-control" name="Movie" />
+            </div>
+
+            
+            <div class="mb-2">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+
+            <div class="mb-2">
+                <label>Select Time</label>
+
+                <select class="form-control custom-select" asp-items="@ViewBag.ShowTimes" asp-for="Time">
+                    <option selected="" disable>Select Time</option>
+                </select>
+            </div>
+
+        </form>
+    </div>
+</div>>
+

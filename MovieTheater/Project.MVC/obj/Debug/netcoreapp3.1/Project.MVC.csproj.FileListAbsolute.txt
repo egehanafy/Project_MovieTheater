@@ -183,3 +183,5 @@ D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.MVC\obj\Debug\netcoreapp
 D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.MVC\obj\Debug\netcoreapp3.1\Razor\Areas\Dashboard\Views\Employee\Create.cshtml.g.cs
 D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.MVC\obj\Debug\netcoreapp3.1\Razor\Areas\Dashboard\Views\Employee\Index.cshtml.g.cs
 D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.MVC\obj\Debug\netcoreapp3.1\Razor\Areas\Dashboard\Views\Employee\Update.cshtml.g.cs
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.MVC\obj\Debug\netcoreapp3.1\Razor\Areas\Dashboard\Views\ShowTime\Index.cshtml.g.cs
+D:\YZL3162\Projelerim\MovieTheater\MovieTheater\Project.MVC\obj\Debug\netcoreapp3.1\Razor\Areas\Dashboard\Views\ShowTime\Create.cshtml.g.cs
