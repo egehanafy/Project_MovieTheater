@@ -18,11 +18,10 @@ namespace Project.Entity.Entity
         public string ImagePath { get; set; }
         public decimal? UnitPrice { get; set; }
         public int? GenreId { get; set; }
-        public int? HallId { get; set; }
 
         //Relational Properties
         public virtual Genre Genre { get; set; }
-        public virtual Hall Hall { get; set; }
+        public virtual List<ShowTime> ShowTimes { get; set; }
         public virtual List<TicketDetail> TicketDetails { get; set; }
 
     }

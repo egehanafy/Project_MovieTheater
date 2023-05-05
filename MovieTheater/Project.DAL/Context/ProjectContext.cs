@@ -37,5 +37,6 @@ namespace Project.DAL.Context
         public DbSet<Seat> Seats { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<ShowTime> ShowTimes { get; set; }
     }
 }

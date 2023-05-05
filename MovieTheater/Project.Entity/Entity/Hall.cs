@@ -10,7 +10,7 @@ namespace Project.Entity.Entity
         public string No { get; set; }
 
         //Relational Properties
-        public virtual List<Movie> Movies { get; set; }
         public virtual List<Seat> Seats { get; set; }
+        public virtual List<ShowTime> ShowTimes { get; set; }
     }
 }
