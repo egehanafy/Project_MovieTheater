@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "g8V4d0HJ2y6Z5UvcfVWFNm77qGnK7sVGP2QGkY/FyKaj2l17omhK093TFTxCjmN7gliS1UBXY7ml6Afb41+R6A==",
+  "dgSpecHash": "Zl3DkfHugDje9qjHXUztrZ8k0IhJB7kHjC4+IHWwwlHjLQNxHII2Vk4gkOA8tzHghBGTxcmqUD0dIrulPzkp/Q==",
   "success": true,
   "projectFilePath": "D:\\YZL3162\\Projelerim\\MovieTheater\\MovieTheater\\Project.MVC\\Project.MVC.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\socia\\.nuget\\packages\\jquery\\3.6.4\\jquery.3.6.4.nupkg.sha512",
     "C:\\Users\\socia\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.32\\microsoft.aspnetcore.authentication.jwtbearer.3.1.32.nupkg.sha512",
     "C:\\Users\\socia\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.32\\microsoft.aspnetcore.cryptography.internal.3.1.32.nupkg.sha512",
     "C:\\Users\\socia\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.32\\microsoft.aspnetcore.cryptography.keyderivation.3.1.32.nupkg.sha512",

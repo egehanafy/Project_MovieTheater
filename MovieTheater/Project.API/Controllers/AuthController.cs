@@ -11,7 +11,6 @@ namespace Project.API.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
-    [Authorize(AuthenticationSchemes = "Bearer")]
     public class AuthController : ControllerBase
     {
         private readonly UserManager<AppUser> _userManager;
@@ -21,9 +20,11 @@ namespace Project.API.Controllers
             _userManager = userManager;
         }
 
+
         [HttpPost]
         public async Task<IActionResult> Login(LoginDTO model)
         {
+
             if (ModelState.IsValid)
             {
                 var user = await _userManager.FindByEmailAsync(model.Email);
@@ -48,12 +49,6 @@ namespace Project.API.Controllers
             {
                 return BadRequest();
             }
-        }
-
-        [HttpPost]
-        public string Testing([FromBody]string test)
-        {
-            return "post test basarili";
         }
     }
 }

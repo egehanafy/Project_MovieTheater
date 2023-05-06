@@ -426,6 +426,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.1.5, )"
+            },
+            "jQuery": {
+              "target": "Package",
+              "version": "[3.6.4, )"
             }
           },
           "imports": [
