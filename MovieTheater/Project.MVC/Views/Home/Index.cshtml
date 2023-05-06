@@ -26,7 +26,21 @@
                                     <div class="bi-star-fill"></div>
                                 </div>
                                 <!-- Product price-->
-                            @item.Description
+                                @if (item.Description != null)
+                                {
+                                    @if (item.Description.Length > 100)
+                                    {
+                                        @item.Description.Substring(0,99) <span>[<a href="#">genislet...</a>]</span>
+                                    }
+                                    else
+                                    {
+                                        @item.Description
+                                    }
+                                }
+                                else
+                                {
+                                    <span>Aciklama bulunmuyor</span>
+                                }
                             </div>
                         </div>
                         <!-- Product actions-->

@@ -8,9 +8,7 @@ namespace Project.MVC.Areas.Dashboard.ViewModels
     {
         [Required(ErrorMessage = "Zaman bos gecilemez")]
         public DateTime Time { get; set; }
-        [Required(ErrorMessage = "Film bos gecilemez")]
         public Movie Movie { get; set; }
-        [Required(ErrorMessage = "Salon bos gecilemez")]
         public Hall Hall { get; set; }
     }
 }

@@ -10,8 +10,8 @@ using Project.DAL.Context;
 namespace Project.DAL.Migrations
 {
     [DbContext(typeof(ProjectContext))]
-    [Migration("20230505163906_editMovie")]
-    partial class editMovie
+    [Migration("20230506143744_initialDatabase")]
+    partial class initialDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

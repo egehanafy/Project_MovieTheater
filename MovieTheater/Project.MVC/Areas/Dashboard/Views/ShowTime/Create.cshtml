@@ -12,28 +12,28 @@
         <form asp-action="Create" asp-controller="ShowTime" method="post">
             <div class="mb-2">
                 <label>Showtime</label>
-                <input type="text" class="form-control" name="ShowTime" />
+                <input type="text" class="form-control" asp-for="Time" />
             </div>
 
             <div class="mb-2">
-                <label>Movie</label>
-                <input type="text" class="form-control" name="Movie" />
+                <label>Select Movie</label>
+                <select class="form-control custom-select" asp-items="@ViewBag.Movies" asp-for="Movie.Id">
+                    <option selected="" disable>Select Hall</option>
+                </select>
             </div>
 
+            <div class="mb-2">
+                <label>Hall</label>
+                <select class="form-control custom-select" asp-items="@ViewBag.Halls" asp-for="Hall.Id">
+                    <option selected="" disable>Select Hall</option>
+                </select>
+            </div>
             
             <div class="mb-2">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
 
-            <div class="mb-2">
-                <label>Select Time</label>
-
-                <select class="form-control custom-select" asp-items="@ViewBag.ShowTimes" asp-for="Time">
-                    <option selected="" disable>Select Time</option>
-                </select>
-            </div>
-
         </form>
     </div>
-</div>>
+</div>
 

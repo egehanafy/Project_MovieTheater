@@ -12,10 +12,14 @@ namespace Project.MVC.Areas.Dashboard.Controllers
     public class ShowTimeController : Controller
     {
         private readonly IShowTimeService _showTimeService;
+        private readonly IMovieService _movieService;
+        private readonly IHallService _hallService;
 
-        public ShowTimeController(IShowTimeService showTimeService)
+        public ShowTimeController(IShowTimeService showTimeService, IMovieService movieService, IHallService hallService)
         {
             _showTimeService = showTimeService;
+            _movieService = movieService;
+            _hallService = hallService;
         }
         public IActionResult Index()
         {
@@ -23,6 +27,16 @@ namespace Project.MVC.Areas.Dashboard.Controllers
         }
         public IActionResult Create()
         {
+            ViewBag.Movies = _movieService.GetAllMovie().Select(x => new SelectListItem()
+            {
+                Text = x.Title,
+                Value = x.Id.ToString()
+            });
+            ViewBag.Halls = _hallService.GetAllHalls().Select(x => new SelectListItem()
+            {
+                Text = x.No,
+                Value = x.Id.ToString()
+            });
             return View();
         }
 
@@ -54,6 +68,16 @@ namespace Project.MVC.Areas.Dashboard.Controllers
 
         public IActionResult Update(int id)
         {
+            ViewBag.Movies = _movieService.GetAllMovie().Select(x => new SelectListItem()
+            {
+                Text = x.Title,
+                Value = x.Id.ToString()
+            });
+            ViewBag.Halls = _hallService.GetAllHalls().Select(x => new SelectListItem()
+            {
+                Text = x.No,
+                Value = x.Id.ToString()
+            });
             var updated = _showTimeService.FindShowTime(id);
             return View(updated);
         }

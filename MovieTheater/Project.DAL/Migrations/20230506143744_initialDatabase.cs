@@ -306,8 +306,7 @@ namespace Project.DAL.Migrations
                     Rating = table.Column<double>(nullable: true),
                     ImagePath = table.Column<string>(nullable: true),
                     UnitPrice = table.Column<decimal>(nullable: true),
-                    GenreId = table.Column<int>(nullable: false),
-                    HallId = table.Column<int>(nullable: true)
+                    GenreId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -316,12 +315,6 @@ namespace Project.DAL.Migrations
                         name: "FK_Movies_Genres_GenreId",
                         column: x => x.GenreId,
                         principalTable: "Genres",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Movies_Halls_HallId",
-                        column: x => x.HallId,
-                        principalTable: "Halls",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -354,6 +347,42 @@ namespace Project.DAL.Migrations
                         principalTable: "Halls",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ShowTimes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    MasterId = table.Column<Guid>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(nullable: false),
+                    CreatedComputerName = table.Column<string>(nullable: true),
+                    CreatedIpAddress = table.Column<string>(nullable: true),
+                    UpdatedDate = table.Column<DateTime>(nullable: false),
+                    UpdatedComputerName = table.Column<string>(nullable: true),
+                    UpdatedIpAddress = table.Column<string>(nullable: true),
+                    IsActive = table.Column<bool>(nullable: false),
+                    Status = table.Column<int>(nullable: false),
+                    Time = table.Column<DateTime>(nullable: false),
+                    MovieId = table.Column<int>(nullable: false),
+                    HallId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ShowTimes", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ShowTimes_Halls_HallId",
+                        column: x => x.HallId,
+                        principalTable: "Halls",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ShowTimes_Movies_MovieId",
+                        column: x => x.MovieId,
+                        principalTable: "Movies",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -437,14 +466,19 @@ namespace Project.DAL.Migrations
                 column: "GenreId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Movies_HallId",
-                table: "Movies",
-                column: "HallId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Seats_HallId",
                 table: "Seats",
                 column: "HallId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ShowTimes_HallId",
+                table: "ShowTimes",
+                column: "HallId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ShowTimes_MovieId",
+                table: "ShowTimes",
+                column: "MovieId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_TicketDetails_TicketId",
@@ -486,10 +520,16 @@ namespace Project.DAL.Migrations
                 name: "Seats");
 
             migrationBuilder.DropTable(
+                name: "ShowTimes");
+
+            migrationBuilder.DropTable(
                 name: "TicketDetails");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "Halls");
 
             migrationBuilder.DropTable(
                 name: "Movies");
@@ -499,9 +539,6 @@ namespace Project.DAL.Migrations
 
             migrationBuilder.DropTable(
                 name: "Genres");
-
-            migrationBuilder.DropTable(
-                name: "Halls");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
