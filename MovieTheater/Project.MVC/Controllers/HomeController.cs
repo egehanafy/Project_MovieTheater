@@ -184,7 +184,7 @@ namespace Project.MVC.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(LoginVM loginVM)
+        public async Task<IActionResult> Login(LoginVM loginVM,)
         {
             if (ModelState.IsValid)
             {
