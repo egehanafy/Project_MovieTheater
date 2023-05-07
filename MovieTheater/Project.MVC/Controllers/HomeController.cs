@@ -148,10 +148,10 @@ namespace Project.MVC.Controllers
             if (User.Identity.IsAuthenticated)
             {
                 Ticket ticket = new Ticket();
+                _ticketService.CreateTicket(ticket);
                 var user = await _userManager.GetUserAsync(User);
                 ticket.AppUser = user;
-                Random rnd = new Random();
-                ticket.TicketNo = rnd.Next(1, 1000000).ToString();
+                ticket.TicketNo = ticket.Id.ToString();
                 TicketDetail ticketDetail = new TicketDetail();
                 foreach (var item in cart._myCart)
                 {
@@ -163,10 +163,10 @@ namespace Project.MVC.Controllers
                     ticketDetail.UnitPrice = item.Value.UnitPrice;
                 }
                 ticket.TicketDetails.Add(ticketDetail);
-                _ticketService.CreateTicket(ticket);
+                _ticketService.UpdateTicket(ticket);
                 _ticketDetailService.CreateTicketDetail(ticketDetail);
 
-                MailSender.SendEmail(user.Email, "Sinema Bileti", $"{ticket.TicketNo} numarali biletiniz olusturuldu.");
+                MailSender.SendEmail(user.Email, "Sinema Bileti", $"{ticket.TicketNo} numarali biletiniz olusturuldu. {ticketDetail.Movie.Title} filmine {ticketDetail.Quantity} kisilik giris hakkiniz vardir.");
 
                 SessionHelper.RemoveSession(HttpContext.Session, "sepet");
 
@@ -184,7 +184,7 @@ namespace Project.MVC.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(LoginVM loginVM,)
+        public async Task<IActionResult> Login(LoginVM loginVM)
         {
             if (ModelState.IsValid)
             {

@@ -9,5 +9,6 @@ namespace Project.BLL.IntService
     {
         IEnumerable<Ticket> GetAllTickets();
         string CreateTicket(Ticket ticket);
+        string UpdateTicket(Ticket ticket);
     }
 }

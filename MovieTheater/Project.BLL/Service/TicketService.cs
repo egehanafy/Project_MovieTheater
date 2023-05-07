@@ -33,5 +33,17 @@ namespace Project.BLL.Service
             return _ticketRepo.GetAll();
         }
 
+        public string UpdateTicket(Ticket ticket)
+        {
+            try
+            {
+                ticket.Status = Entity.Enum.Status.Updated;
+                return _ticketRepo.Update(ticket);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
     }
 }
