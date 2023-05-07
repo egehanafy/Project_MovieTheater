@@ -8,7 +8,7 @@ namespace Project.Entity.Entity
     public class Seat:BaseEntity
     {
         public string Letter { get; set; }
-        public int No { get; set; }
+        public string No { get; set; }
         public int? HallId { get; set; }
 
         //Relational Properties

@@ -1,11 +1,13 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.CodeAnalysis.CSharp;
 using Project.BLL.IntAbstract;
 using Project.BLL.IntService;
 using Project.Common;
 using Project.Entity.Entity;
 using Project.MVC.Areas.Dashboard.ViewModels;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -26,6 +28,8 @@ namespace Project.MVC.Areas.Dashboard.Controllers
 
         public IActionResult Index()
         {
+            _genreService.GetAllGenres().ToList(); //filmlerin kategorisini gostermek icin kategorileride getiriyorum
+
             return View(_movieService.GetAllMovie().ToList());
         }
 

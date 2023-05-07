@@ -498,8 +498,8 @@ namespace Project.DAL.Migrations
                     b.Property<Guid>("MasterId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("No")
-                        .HasColumnType("int");
+                    b.Property<string>("No")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
@@ -600,6 +600,9 @@ namespace Project.DAL.Migrations
                     b.Property<Guid>("MasterId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<int?>("ShowTimeId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
@@ -621,6 +624,8 @@ namespace Project.DAL.Migrations
 
                     b.HasIndex("CustomerId");
 
+                    b.HasIndex("ShowTimeId");
+
                     b.ToTable("Tickets");
                 });
 
@@ -641,6 +646,9 @@ namespace Project.DAL.Migrations
                     b.Property<string>("CreatedIpAddress")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("HallNo")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Id")
                         .HasColumnType("int");
 
@@ -652,6 +660,15 @@ namespace Project.DAL.Migrations
 
                     b.Property<short>("Quantity")
                         .HasColumnType("smallint");
+
+                    b.Property<string>("SeatLetter")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SeatNo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ShowTime")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
@@ -742,13 +759,13 @@ namespace Project.DAL.Migrations
 
             modelBuilder.Entity("Project.Entity.Entity.ShowTime", b =>
                 {
-                    b.HasOne("Project.Entity.Entity.Hall", null)
+                    b.HasOne("Project.Entity.Entity.Hall", "Hall")
                         .WithMany("ShowTimes")
                         .HasForeignKey("HallId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Project.Entity.Entity.Movie", null)
+                    b.HasOne("Project.Entity.Entity.Movie", "Movie")
                         .WithMany("ShowTimes")
                         .HasForeignKey("MovieId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -764,6 +781,10 @@ namespace Project.DAL.Migrations
                     b.HasOne("Project.Entity.Entity.Customer", "Customer")
                         .WithMany("Tickets")
                         .HasForeignKey("CustomerId");
+
+                    b.HasOne("Project.Entity.Entity.ShowTime", "ShowTime")
+                        .WithMany("Tickets")
+                        .HasForeignKey("ShowTimeId");
                 });
 
             modelBuilder.Entity("Project.Entity.Entity.TicketDetail", b =>

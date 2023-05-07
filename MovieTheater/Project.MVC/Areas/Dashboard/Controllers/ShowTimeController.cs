@@ -23,6 +23,8 @@ namespace Project.MVC.Areas.Dashboard.Controllers
         }
         public IActionResult Index()
         {
+            _movieService.GetAllMovie().ToList();
+            _hallService.GetAllHalls().ToList();
             return View(_showTimeService.GetAllShowTime().ToList());
         }
         public IActionResult Create()

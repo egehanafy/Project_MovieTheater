@@ -45,8 +45,8 @@
                             <tr>
                                 <td>@showTime.Id</td>
                                 <td>@showTime.Time.ToShortTimeString()</td>@*Burada ToShortTimeString() metodu ile zamani saat ve dakika olarak gosteriyorum. orn: 21:30*@
-                                <td>@showTime.MovieId
-                                <td>@showTime.HallId</td>
+                                <td>@showTime.Movie.Title</td>
+                                <td>@showTime.Hall.No</td>
                                 <td>
                                     <a class="btn btn-sm btn-warning" asp-action="Update" asp-controller="ShowTime" asp-route-id="@showTime.Id">Update</a>
                                     |

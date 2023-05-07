@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using Project.BLL.IntService;
 using Project.BLL.Service;
@@ -19,14 +20,20 @@ namespace Project.MVC.Controllers
     public class HomeController : Controller
     {
         private readonly IMovieService _movieService;
+        private readonly IShowTimeService _showTimeService;
+        private readonly IHallService _hallService;
+        private readonly ISeatService _seatService;
         private readonly ITicketService _ticketService;
         private readonly ITicketDetailService _ticketDetailService;
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
 
-        public HomeController(IMovieService movieService, ITicketService ticketService, ITicketDetailService ticketDetailService, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+        public HomeController(IMovieService movieService, IShowTimeService showTimeService, IHallService hallService, ISeatService seatService, ITicketService ticketService, ITicketDetailService ticketDetailService, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
         {
             _movieService = movieService;
+            _showTimeService = showTimeService;
+            _hallService = hallService;
+            _seatService = seatService;
             _ticketService = ticketService;
             _ticketDetailService = ticketDetailService;
             _userManager = userManager;
@@ -37,6 +44,14 @@ namespace Project.MVC.Controllers
             TempData["sepet"] = SessionHelper.GetProductFromJson<Cart>(HttpContext.Session, "sepet");
 
             return View(_movieService.GetAllMovie().ToList());
+        }
+        public IActionResult GetMovieTimes(int id)
+        {
+            var movie = _movieService.GetById(id);
+            var showTimes = _showTimeService.GetAllShowTime().ToList();
+            showTimes.AddRange(movie.ShowTimes);
+            
+            return View(movie.ShowTimes.ToList());
         }
 
         public IActionResult Privacy()
@@ -110,14 +125,20 @@ namespace Project.MVC.Controllers
                 cartSession = SessionHelper.GetProductFromJson<Cart>(HttpContext.Session, "sepet");
             }
 
+            var time = _showTimeService.FindShowTime(id);
 
+            var hall = _hallService.GetById(time.HallId);
 
-            var movie = _movieService.GetById(id);
+            var movie = _movieService.GetById(time.MovieId);
+
 
             CartItem cartItem = new CartItem();
             cartItem.Id = movie.Id;
             cartItem.MovieTitle = movie.Title;
             cartItem.UnitPrice = movie.UnitPrice;
+            cartItem.HallNo = hall.No;
+            cartItem.ShowTime = time.Time;
+
 
             cartSession.AddItem(cartItem);
             SessionHelper.SetJsonProduct(HttpContext.Session, "sepet", cartSession);
@@ -144,7 +165,7 @@ namespace Project.MVC.Controllers
         public async Task<IActionResult> CompleteCart()
         {
             Cart cart = SessionHelper.GetProductFromJson<Cart>(HttpContext.Session, "sepet");
-
+            
             if (User.Identity.IsAuthenticated)
             {
                 Ticket ticket = new Ticket();
@@ -158,7 +179,10 @@ namespace Project.MVC.Controllers
                     Movie movie = _movieService.GetById(item.Value.Id);
                     movie.Title = item.Value.MovieTitle;
                     movie.UnitPrice = item.Value.UnitPrice;
-                    ticketDetail.Movie = movie;
+                    ticketDetail.ShowTime = item.Value.ShowTime;
+                    ticketDetail.HallNo = item.Value.HallNo;
+                    //ticketDetail.SeatLetter = item.Value.SeatLetter;
+                    //ticketDetail.SeatNo = item.Value.SeatNo;
                     ticketDetail.Quantity = item.Value.Quantity;
                     ticketDetail.UnitPrice = item.Value.UnitPrice;
                 }
@@ -166,7 +190,7 @@ namespace Project.MVC.Controllers
                 _ticketService.UpdateTicket(ticket);
                 _ticketDetailService.CreateTicketDetail(ticketDetail);
 
-                MailSender.SendEmail(user.Email, "Sinema Bileti", $"{ticket.TicketNo} numarali biletiniz olusturuldu. {ticketDetail.Movie.Title} filmine {ticketDetail.Quantity} kisilik giris hakkiniz vardir.");
+                MailSender.SendEmail(user.Email, "Sinema Bileti", $"{ticket.TicketNo} numarali biletiniz olusturuldu. {"ticketDetail.Movie.Title"} filmine {ticketDetail.Quantity} kisilik giris hakkiniz vardir. Bilet bilginiz:{ticketDetail.HallNo} icindeki {ticketDetail.ShowTime.ToShortTimeString()} zamaninda baslayacak filminiz icin {"koltuk adi"}{"koltuk no"} numarali koltuktan izleyebilirsiniz.");
 
                 SessionHelper.RemoveSession(HttpContext.Session, "sepet");
 
